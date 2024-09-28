@@ -1,6 +1,7 @@
 import 'package:auxzon/core/constants/text_styles.dart';
 import 'package:auxzon/core/model/food_model.dart';
 import 'package:auxzon/core/routes/app_routes.dart';
+import 'package:auxzon/testing/testing.dart';
 import 'package:flutter/material.dart';
 
 class Section3 extends StatelessWidget {
@@ -12,70 +13,117 @@ class Section3 extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: 300,
-            color: const Color(0XFFEA4444),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width *
-                        0.5, // 40% of screen width
-                    child: Wrap(
-                      direction: Axis.horizontal,
-                      spacing: 10.0,
-                      runSpacing: 10.0,
+          SizedBox(
+            height: 350,
+            child: Stack(
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 300,
+                  color: const Color(0XFFEA4444),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 16),
+                    child: Row(
                       children: [
-                        Text(
-                          "Location",
-                          style: TextStyles.rubik16WhiteW500,
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width *
+                              0.5, // 40% of screen width
+                          child: Wrap(
+                            direction: Axis.horizontal,
+                            spacing: 10.0,
+                            runSpacing: 10.0,
+                            children: [
+                              Text(
+                                "Location",
+                                style: TextStyles.rubik16WhiteW500,
+                              ),
+                              const SizedBox(height: 10),
+                              Row(
+                                children: [
+                                  const Icon(
+                                    Icons.location_on_rounded,
+                                    color: Colors.white,
+                                  ),
+                                  Text(
+                                    "St, Abigoael",
+                                    style: TextStyles.rubik16WhiteW500,
+                                  ),
+                                  const Icon(
+                                    Icons.arrow_drop_down,
+                                    color: Colors.white,
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 10),
+                              Text(
+                                "Promo Buy 1 Get 1 more!",
+                                style: TextStyles.rubik23WhiteW700,
+                              ),
+                              ElevatedButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    "Order Now",
+                                    style: TextStyles.rubik14WredeW600,
+                                  ))
+                            ],
+                          ),
                         ),
-                        const SizedBox(height: 10),
-                        Row(
+                        const Spacer(),
+                        Column(
                           children: [
-                            const Icon(
-                              Icons.location_on_rounded,
-                              color: Colors.white,
-                            ),
-                            Text(
-                              "St, Abigoael",
-                              style: TextStyles.rubik16WhiteW500,
-                            ),
-                            const Icon(
-                              Icons.arrow_drop_down,
-                              color: Colors.white,
+                            const Spacer(),
+                            Image.asset(
+                              'assets/image-8.png',
+                              width: MediaQuery.of(context).size.width *
+                                  0.45, // 43% of screen width for the image
                             ),
                           ],
                         ),
-                        const SizedBox(height: 10),
-                        Text(
-                          "Promo Buy 1 Get 1 more!",
-                          style: TextStyles.rubik23WhiteW700,
-                        ),
-                        ElevatedButton(
-                            onPressed: () {},
-                            child: Text(
-                              "Order Now",
-                              style: TextStyles.rubik14WredeW600,
-                            ))
                       ],
                     ),
                   ),
-                  const Spacer(),
-                  Column(
-                    children: [
-                      const Spacer(),
-                      Image.asset(
-                        'assets/image-8.png',
-                        width: MediaQuery.of(context).size.width *
-                            0.45, // 43% of screen width for the image
+                ),
+                Positioned(
+                  bottom: 25, // Pushes the search bar partially outside
+                  left: 16,
+                  right: 16,
+                  child: GestureDetector(
+                    onTap: () {
+                      // Trigger search when tapped
+                      showSearch(
+                        context: context,
+                        delegate:
+                            ProductSearchDelegate(), // Your custom search delegate
+                      );
+                    },
+                    child: Container(
+                      height: 40,
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(24),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 4,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
                       ),
-                    ],
+                      child: const Row(
+                        children: [
+                          Icon(Icons.search, color: Colors.grey),
+                          SizedBox(width: 10),
+                          Text(
+                            'Search food, restaurant, etc',
+                            style: TextStyle(color: Colors.grey, fontSize: 16),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           const SizedBox(height: 30),

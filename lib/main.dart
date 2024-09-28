@@ -1,4 +1,5 @@
 import 'package:auxzon/screens/intro/intro_screen.dart';
+import 'package:auxzon/testing/testing.dart';
 import 'package:flutter/material.dart';
 
 void main() {
