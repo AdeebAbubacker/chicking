@@ -1,3 +1,4 @@
+import 'package:auxzon/core/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class GetStartedScreen extends StatelessWidget {
@@ -73,7 +74,7 @@ class GetStartedScreen extends StatelessWidget {
                       height: 55,
                       child: ElevatedButton(
                         onPressed: () {
-                          // Add button action here
+                          AppRoutes.navigateToHome(context);
                         },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
