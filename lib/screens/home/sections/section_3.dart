@@ -28,11 +28,10 @@ class Section3 extends StatelessWidget {
                         SizedBox(
                           width: MediaQuery.of(context).size.width *
                               0.5, // 40% of screen width
-                          child: Wrap(
-                            direction: Axis.horizontal,
-                            spacing: 10.0,
-                            runSpacing: 10.0,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              const SizedBox(height: 10),
                               Text(
                                 "Location",
                                 style: TextStyles.rubik16WhiteW500,
@@ -59,6 +58,7 @@ class Section3 extends StatelessWidget {
                                 "Promo Buy 1 Get 1 more!",
                                 style: TextStyles.rubik23WhiteW700,
                               ),
+                              const SizedBox(height: 10),
                               ElevatedButton(
                                   onPressed: () {},
                                   child: Text(
@@ -76,6 +76,7 @@ class Section3 extends StatelessWidget {
                               'assets/image-8.png',
                               width: MediaQuery.of(context).size.width *
                                   0.45, // 43% of screen width for the image
+                              height: 290,
                             ),
                           ],
                         ),

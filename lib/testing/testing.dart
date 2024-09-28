@@ -1,55 +1,55 @@
-import 'package:auxzon/core/model/food_model.dart';
 import 'package:flutter/material.dart';
+import 'package:auxzon/core/model/food_model.dart';
 
 // SearchDelegate for handling search
 class ProductSearchDelegate extends SearchDelegate {
   // Food list to search from
-  List<FoodModel> foodList = [
-  const FoodModel(
+  final List<FoodModel> foodList = [
+    const FoodModel(
       img: 'assets/image-1.jpg',
-      food: 'Burger beef anjaz',
+      food: 'a',
       shop: 'Burger Bos',
       price: 'Rs 45',
       rating: '4.5',
     ),
     const FoodModel(
       img: 'assets/image-2.jpg',
-      food: 'Burger beef anjaz',
+      food: 'b',
       shop: 'Burger Bos',
       price: 'Rs 225',
       rating: '4.7',
     ),
     const FoodModel(
       img: 'assets/image-3.jpg',
-      food: 'Burger beef anjaz',
+      food: 'c',
       shop: 'Burger Bos',
       price: 'Rs 115',
       rating: '3.7',
     ),
     const FoodModel(
       img: 'assets/image-4.jpg',
-      food: 'Burger beef anjaz',
+      food: 'd',
       shop: 'Burger Bos',
       price: 'Rs 230',
       rating: '4.0',
     ),
     const FoodModel(
       img: 'assets/image-5.jpg',
-      food: 'Burger beef anjaz',
+      food: 'e',
       shop: 'Burger Bos',
       price: 'Rs 100',
       rating: '3.5',
     ),
     const FoodModel(
       img: 'assets/image-6.jpg',
-      food: 'Burger beef anjaz',
+      food: 'f',
       shop: 'Burger Bos',
       price: 'Rs 250',
       rating: '4.9',
     ),
     const FoodModel(
       img: 'assets/image-7.jpg',
-      food: 'Burger beef anjaz',
+      food: 'g',
       shop: 'Burger Bos',
       price: 'Rs 300',
       rating: '4.5',
@@ -57,6 +57,58 @@ class ProductSearchDelegate extends SearchDelegate {
   ];
 
   List<FoodModel> filteredList = [];
+    final List<FoodModel> suggestionsList = [
+    const FoodModel(
+      img: 'assets/image-1.jpg',
+      food: 'a',
+      shop: 'Burger Bos',
+      price: 'Rs 45',
+      rating: '4.5',
+    ),
+    const FoodModel(
+      img: 'assets/image-2.jpg',
+      food: 'b',
+      shop: 'Burger Bos',
+      price: 'Rs 225',
+      rating: '4.7',
+    ),
+    const FoodModel(
+      img: 'assets/image-3.jpg',
+      food: 'c',
+      shop: 'Burger Bos',
+      price: 'Rs 115',
+      rating: '3.7',
+    ),
+    const FoodModel(
+      img: 'assets/image-4.jpg',
+      food: 'd',
+      shop: 'Burger Bos',
+      price: 'Rs 230',
+      rating: '4.0',
+    ),
+    const FoodModel(
+      img: 'assets/image-5.jpg',
+      food: 'e',
+      shop: 'Burger Bos',
+      price: 'Rs 100',
+      rating: '3.5',
+    ),
+    const FoodModel(
+      img: 'assets/image-6.jpg',
+      food: 'f',
+      shop: 'Burger Bos',
+      price: 'Rs 250',
+      rating: '4.9',
+    ),
+    const FoodModel(
+      img: 'assets/image-7.jpg',
+      food: 'g',
+      shop: 'Burger Bos',
+      price: 'Rs 300',
+      rating: '4.5',
+    ),
+  ];
+
 
   @override
   ThemeData appBarTheme(BuildContext context) {
@@ -96,7 +148,7 @@ class ProductSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    // Filtered search results
+    // Filtered search results based on user query
     filteredList = foodList
         .where((food) => food.food.toLowerCase().contains(query.toLowerCase()))
         .toList();
@@ -112,8 +164,8 @@ class ProductSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    // Show suggestions as the user types
-    filteredList = foodList
+    // Suggestions as the user types based on the query
+    filteredList = suggestionsList
         .where((food) => food.food.toLowerCase().contains(query.toLowerCase()))
         .toList();
 
@@ -137,13 +189,13 @@ class ProductSearchDelegate extends SearchDelegate {
             icon: const Icon(Icons.close, color: Colors.red),
             onPressed: () {
               // Remove the item from the original list
-              foodList.remove(list[index]);
+              suggestionsList.remove(list[index]);
               query = ''; // Clear the search query to update suggestions
               showSuggestions(context); // Refresh suggestions
             },
           ),
           onTap: () {
-            query = list[index].food; // Set the search query
+            query = foodList[index].food; // Set the search query
             showResults(context); // Show the results based on the suggestion
           },
         );
