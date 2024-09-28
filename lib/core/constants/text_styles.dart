@@ -48,4 +48,9 @@ class TextStyles {
     fontWeight: FontWeight.w600,
     color: Colors.grey,
   );
+  static final TextStyle rubik12bluegreyW600 = rubik.copyWith(
+    fontSize: 12,
+    fontWeight: FontWeight.w600,
+    color: const Color.fromARGB(255, 35, 35, 35),
+  );
 }

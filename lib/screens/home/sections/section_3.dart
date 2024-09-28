@@ -255,42 +255,42 @@ class TopRatedFood extends StatelessWidget {
       img: 'assets/image-2.jpg',
       food: 'Burger beef anjaz',
       shop: 'Burger Bos',
-      price: 'Rs 45',
-      rating: '4.5',
+      price: 'Rs 225',
+      rating: '4.7',
     ),
     const FoodModel(
       img: 'assets/image-3.jpg',
       food: 'Burger beef anjaz',
       shop: 'Burger Bos',
-      price: 'Rs 45',
-      rating: '4.5',
+      price: 'Rs 115',
+      rating: '3.7',
     ),
     const FoodModel(
       img: 'assets/image-4.jpg',
       food: 'Burger beef anjaz',
       shop: 'Burger Bos',
-      price: 'Rs 45',
-      rating: '4.5',
+      price: 'Rs 230',
+      rating: '4.0',
     ),
     const FoodModel(
       img: 'assets/image-5.jpg',
       food: 'Burger beef anjaz',
       shop: 'Burger Bos',
-      price: 'Rs 45',
-      rating: '4.5',
+      price: 'Rs 100',
+      rating: '3.5',
     ),
     const FoodModel(
       img: 'assets/image-6.jpg',
       food: 'Burger beef anjaz',
       shop: 'Burger Bos',
-      price: 'Rs 45',
-      rating: '4.5',
+      price: 'Rs 250',
+      rating: '4.9',
     ),
     const FoodModel(
       img: 'assets/image-7.jpg',
       food: 'Burger beef anjaz',
       shop: 'Burger Bos',
-      price: 'Rs 45',
+      price: 'Rs 300',
       rating: '4.5',
     ),
   ];
@@ -330,12 +330,10 @@ class TopRatedFood extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.grey.withOpacity(
-                                0.5), // Shadow color with some opacity
-                            spreadRadius: 1, // How much the shadow spreads
-                            blurRadius: 4, // How blurry the shadow is
-                            offset: const Offset(
-                                0, 3), // Offset of the shadow (x-axis, y-axis)
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 1,
+                            blurRadius: 4,
+                            offset: const Offset(0, 3),
                           ),
                         ],
                       ),
@@ -345,18 +343,47 @@ class TopRatedFood extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             ClipRRect(
-                              borderRadius: BorderRadius.circular(
-                                  12), // Set the border radius for rounded edges
-                              child: SizedBox(
-                                height: 100,
-                                width: double.infinity, // Set to maximum width
-                                child: Image.asset(
-                                  foodList[index].img,
-                                  fit: BoxFit
-                                      .cover, // Adjusts the image to cover the width
-                                ),
-                              ),
-                            ),
+                                borderRadius: BorderRadius.circular(12),
+                                child: Stack(
+                                  children: [
+                                    SizedBox(
+                                      height: 100,
+                                      width: double.infinity,
+                                      child: Image.asset(
+                                        foodList[index].img,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Positioned(
+                                      top: 10,
+                                      left: 10,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            color: const Color.fromARGB(
+                                                255, 235, 235, 235),
+                                            borderRadius:
+                                                BorderRadius.circular(9)),
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 5),
+                                          child: Row(
+                                            children: [
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.amber[700],
+                                              ),
+                                              Text(
+                                                '(${foodList[index].rating})',
+                                                style: TextStyles
+                                                    .rubik12bluegreyW600,
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )),
                             const SizedBox(height: 10),
                             Text(
                               foodList[index].food,
