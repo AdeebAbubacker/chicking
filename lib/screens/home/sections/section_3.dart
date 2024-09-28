@@ -308,8 +308,9 @@ class TopRatedFood extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           SizedBox(
-            height: 200,
+            height: 205,
             child: ListView.builder(
+              padding: const EdgeInsets.all(0),
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
@@ -322,88 +323,85 @@ class TopRatedFood extends StatelessWidget {
                     onTap: () {
                       AppRoutes.navigateToProductScreen(context);
                     },
-                    child: Container(
-                      width: 165,
-                      height: 200,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
+                    child: Card(
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 1,
-                            blurRadius: 4,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            ClipRRect(
-                                borderRadius: BorderRadius.circular(12),
-                                child: Stack(
-                                  children: [
-                                    SizedBox(
-                                      height: 100,
-                                      width: double.infinity,
-                                      child: Image.asset(
-                                        foodList[index].img,
-                                        fit: BoxFit.cover,
+                      elevation: 4, // This controls the shadow effect
+                      shadowColor: Colors.grey.withOpacity(0.5),
+                      child: SizedBox(
+                        width: 165,
+                        height: 200,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(12),
+                                  child: Stack(
+                                    children: [
+                                      SizedBox(
+                                        height: 100,
+                                        width: double.infinity,
+                                        child: Image.asset(
+                                          foodList[index].img,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
-                                    ),
-                                    Positioned(
-                                      top: 10,
-                                      left: 10,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                            color: const Color.fromARGB(
-                                                255, 235, 235, 235),
-                                            borderRadius:
-                                                BorderRadius.circular(9)),
-                                        child: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 5),
-                                          child: Row(
-                                            children: [
-                                              Icon(
-                                                Icons.star,
-                                                color: Colors.amber[700],
-                                              ),
-                                              Text(
-                                                '(${foodList[index].rating})',
-                                                style: TextStyles
-                                                    .rubik12bluegreyW600,
-                                              )
-                                            ],
+                                      Positioned(
+                                        top: 10,
+                                        left: 10,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              color: const Color.fromARGB(
+                                                  255, 235, 235, 235),
+                                              borderRadius:
+                                                  BorderRadius.circular(9)),
+                                          child: Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 5),
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.star,
+                                                  color: Colors.amber[700],
+                                                ),
+                                                Text(
+                                                  '(${foodList[index].rating})',
+                                                  style: TextStyles
+                                                      .rubik12bluegreyW600,
+                                                )
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                )),
-                            const SizedBox(height: 10),
-                            Text(
-                              foodList[index].food,
-                              style: TextStyles.rubik14blackW600,
-                            ),
-                            const SizedBox(height: 5),
-                            Row(
-                              children: [
-                                Text(
-                                  foodList[index].shop,
-                                  style: TextStyles.rubik12greyW600,
-                                ),
-                                const Spacer(),
-                                Text(
-                                  foodList[index].price,
-                                  style: TextStyles.rubik14blackW600,
-                                )
-                              ],
-                            ),
-                          ],
+                                    ],
+                                  )),
+                              const SizedBox(height: 10),
+                              Text(
+                                foodList[index].food,
+                                style: TextStyles.rubik14blackW600,
+                              ),
+                              const SizedBox(height: 5),
+                              Row(
+                                children: [
+                                  Text(
+                                    foodList[index].shop,
+                                    style: TextStyles.rubik12greyW600,
+                                  ),
+                                  const Spacer(),
+                                  Text(
+                                    foodList[index].price,
+                                    style: TextStyles.rubik14blackW600,
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -446,7 +444,7 @@ class RestaurantNearYou extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           SizedBox(
-            height: 200,
+            height: 205,
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
@@ -460,61 +458,56 @@ class RestaurantNearYou extends StatelessWidget {
                     onTap: () {
                       AppRoutes.navigateToProductScreen(context);
                     },
-                    child: Container(
-                      width: 165,
-                      height: 200,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
+                    child: Card(
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(
-                                0.5), // Shadow color with some opacity
-                            spreadRadius: 1, // How much the shadow spreads
-                            blurRadius: 4, // How blurry the shadow is
-                            offset: const Offset(
-                                0, 3), // Offset of the shadow (x-axis, y-axis)
-                          ),
-                        ],
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(
-                                  12), // Set the border radius for rounded edges
-                              child: SizedBox(
-                                height: 100,
-                                width: double.infinity, // Set to maximum width
-                                child: Image.asset(
-                                  'assets/image-2.jpg',
-                                  fit: BoxFit
-                                      .cover, // Adjusts the image to cover the width
+                      elevation: 4, // This controls the shadow effect
+                      shadowColor: Colors.grey.withOpacity(0.5),
+                      child: SizedBox(
+                        width: 165,
+                        height: 200,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(
+                                    12), // Set the border radius for rounded edges
+                                child: SizedBox(
+                                  height: 100,
+                                  width:
+                                      double.infinity, // Set to maximum width
+                                  child: Image.asset(
+                                    'assets/image-2.jpg',
+                                    fit: BoxFit
+                                        .cover, // Adjusts the image to cover the width
+                                  ),
                                 ),
                               ),
-                            ),
-                            const SizedBox(height: 10),
-                            Text(
-                              "Burger beef anjaz",
-                              style: TextStyles.rubik14blackW600,
-                            ),
-                            const SizedBox(height: 5),
-                            Row(
-                              children: [
-                                Text(
-                                  'Burger Bos',
-                                  style: TextStyles.rubik12greyW600,
-                                ),
-                                const Spacer(),
-                                Text(
-                                  'Rs 45.0',
-                                  style: TextStyles.rubik14blackW600,
-                                )
-                              ],
-                            ),
-                          ],
+                              const SizedBox(height: 10),
+                              Text(
+                                "Burger beef anjaz",
+                                style: TextStyles.rubik14blackW600,
+                              ),
+                              const SizedBox(height: 5),
+                              Row(
+                                children: [
+                                  Text(
+                                    'Burger Bos',
+                                    style: TextStyles.rubik12greyW600,
+                                  ),
+                                  const Spacer(),
+                                  Text(
+                                    'Rs 45.0',
+                                    style: TextStyles.rubik14blackW600,
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
