@@ -62,9 +62,38 @@ class GetStartedScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        buildDot(Colors.grey),
-                        buildDot(Colors.red),
-                        buildDot(Colors.grey),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 3),
+                          child: Container(
+                            width: 8,
+                            height: 8,
+                            decoration: BoxDecoration(
+                              color: Colors.grey,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 3),
+                          child: Container(
+                            width: 8,
+                            height: 8,
+                            decoration: BoxDecoration(
+                              color: Colors.grey,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 3),
+                          child: Container(
+                            width: 20,
+                            height: 8,
+                            decoration: BoxDecoration(
+                                color: Colors.amber[700],
+                                borderRadius: BorderRadius.circular(20)),
+                          ),
+                        ),
                       ],
                     ),
                     const Spacer(),
@@ -104,10 +133,9 @@ class GetStartedScreen extends StatelessWidget {
   }
 
   // Function to build dots for the indicator
-  Widget buildDot(Color color) {
+  Widget buildDot({required Color color, double? width}) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 4),
-      width: 8,
+      width: width ?? 8,
       height: 8,
       decoration: BoxDecoration(
         color: color,
