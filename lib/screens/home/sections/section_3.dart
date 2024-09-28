@@ -1,4 +1,5 @@
 import 'package:auxzon/core/constants/text_styles.dart';
+import 'package:auxzon/core/model/food_model.dart';
 import 'package:auxzon/core/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
@@ -228,7 +229,7 @@ class Section3 extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 30),
-          const TopRatedFood(),
+          TopRatedFood(),
           const SizedBox(height: 30),
           const RestaurantNearYou()
         ],
@@ -238,10 +239,61 @@ class Section3 extends StatelessWidget {
 }
 
 class TopRatedFood extends StatelessWidget {
-  const TopRatedFood({
+  TopRatedFood({
     super.key,
   });
 
+  List<FoodModel> foodList = [
+    const FoodModel(
+      img: 'assets/image-1.jpg',
+      food: 'Burger beef anjaz',
+      shop: 'Burger Bos',
+      price: 'Rs 45',
+      rating: '4.5',
+    ),
+    const FoodModel(
+      img: 'assets/image-2.jpg',
+      food: 'Burger beef anjaz',
+      shop: 'Burger Bos',
+      price: 'Rs 45',
+      rating: '4.5',
+    ),
+    const FoodModel(
+      img: 'assets/image-3.jpg',
+      food: 'Burger beef anjaz',
+      shop: 'Burger Bos',
+      price: 'Rs 45',
+      rating: '4.5',
+    ),
+    const FoodModel(
+      img: 'assets/image-4.jpg',
+      food: 'Burger beef anjaz',
+      shop: 'Burger Bos',
+      price: 'Rs 45',
+      rating: '4.5',
+    ),
+    const FoodModel(
+      img: 'assets/image-5.jpg',
+      food: 'Burger beef anjaz',
+      shop: 'Burger Bos',
+      price: 'Rs 45',
+      rating: '4.5',
+    ),
+    const FoodModel(
+      img: 'assets/image-6.jpg',
+      food: 'Burger beef anjaz',
+      shop: 'Burger Bos',
+      price: 'Rs 45',
+      rating: '4.5',
+    ),
+    const FoodModel(
+      img: 'assets/image-7.jpg',
+      food: 'Burger beef anjaz',
+      shop: 'Burger Bos',
+      price: 'Rs 45',
+      rating: '4.5',
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -261,7 +313,7 @@ class TopRatedFood extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
-              itemCount: 10,
+              itemCount: foodList.length,
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.only(
@@ -299,7 +351,7 @@ class TopRatedFood extends StatelessWidget {
                                 height: 100,
                                 width: double.infinity, // Set to maximum width
                                 child: Image.asset(
-                                  'assets/image-2.jpg',
+                                  foodList[index].img,
                                   fit: BoxFit
                                       .cover, // Adjusts the image to cover the width
                                 ),
@@ -307,19 +359,19 @@ class TopRatedFood extends StatelessWidget {
                             ),
                             const SizedBox(height: 10),
                             Text(
-                              "Burger beef anjaz",
+                              foodList[index].food,
                               style: TextStyles.rubik14blackW600,
                             ),
                             const SizedBox(height: 5),
                             Row(
                               children: [
                                 Text(
-                                  'Burger Bos',
+                                  foodList[index].shop,
                                   style: TextStyles.rubik12greyW600,
                                 ),
                                 const Spacer(),
                                 Text(
-                                  'Rs 45.0',
+                                  foodList[index].price,
                                   style: TextStyles.rubik14blackW600,
                                 )
                               ],
