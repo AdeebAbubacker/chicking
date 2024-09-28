@@ -29,164 +29,113 @@ class _HomeLayoutState extends State<HomeLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 247, 247, 247),
-      body: _screens[_selectedIndex],
-      bottomNavigationBar: SizedBox(
-        height: 80.0, // Set the height for the BottomNavigationBar
-        child: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: _selectedIndex == 0
-                  ? SizedBox(
-                      width: 45,
-                      height: 45,
-                      child: Stack(
-                        children: [
-                          Container(
-                            width: 45,
-                            height: 45,
-                            decoration: const BoxDecoration(
-                                color: Colors.red,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30))),
+        backgroundColor: const Color.fromARGB(255, 247, 247, 247),
+        body: _screens[_selectedIndex],
+        bottomNavigationBar: Container(
+          height: 60.0,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 2,
+                blurRadius: 10,
+                offset: const Offset(0, 3),
+              ),
+            ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              GestureDetector(
+                  onTap: () => _onItemTapped(0),
+                  child: _selectedIndex == 0
+                      ? Container(
+                          width: 45,
+                          height: 45,
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(30),
                           ),
-                          const Center(
-                            child: Icon(
-                              Icons.search,
-                              color: Colors.white,
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  : const Icon(
-                      Icons.search,
-                    ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: _selectedIndex == 1
-                  ? SizedBox(
-                      width: 45,
-                      height: 45,
-                      child: Stack(
-                        children: [
-                          Container(
-                            width: 45,
-                            height: 45,
-                            decoration: const BoxDecoration(
-                                color: Colors.red,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30))),
+                          child: const Icon(Icons.search, color: Colors.white),
+                        )
+                      : const SizedBox(
+                          width: 45,
+                          height: 45,
+                          child: Icon(Icons.search, color: Colors.grey),
+                        )),
+              GestureDetector(
+                  onTap: () => _onItemTapped(1),
+                  child: _selectedIndex == 1
+                      ? Container(
+                          width: 45,
+                          height: 45,
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(30),
                           ),
-                          const Center(
-                            child: Icon(
-                              Icons.favorite,
-                              color: Colors.white,
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  : const Icon(
-                      Icons.favorite,
-                    ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: _selectedIndex == 2
-                  ? SizedBox(
-                      width: 45,
-                      height: 45,
-                      child: Stack(
-                        children: [
-                          Container(
-                            width: 45,
-                            height: 45,
-                            decoration: const BoxDecoration(
-                                color: Colors.red,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30))),
+                          child:
+                              const Icon(Icons.favorite, color: Colors.white),
+                        )
+                      : const SizedBox(
+                          width: 45,
+                          height: 45,
+                          child: Icon(Icons.favorite, color: Colors.grey),
+                        )),
+              GestureDetector(
+                  onTap: () => _onItemTapped(2),
+                  child: _selectedIndex == 2
+                      ? Container(
+                          width: 45,
+                          height: 45,
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(30),
                           ),
-                          const Center(
-                            child: Icon(
-                              Icons.home,
-                              color: Colors.white,
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  : const Icon(
-                      Icons.home,
-                    ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: _selectedIndex == 3
-                  ? SizedBox(
-                      width: 45,
-                      height: 45,
-                      child: Stack(
-                        children: [
-                          Container(
-                            width: 45,
-                            height: 45,
-                            decoration: const BoxDecoration(
-                                color: Colors.red,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30))),
+                          child: const Icon(Icons.home, color: Colors.white),
+                        )
+                      : const SizedBox(
+                          width: 45,
+                          height: 45,
+                          child: Icon(Icons.home, color: Colors.grey),
+                        )),
+              GestureDetector(
+                  onTap: () => _onItemTapped(3),
+                  child: _selectedIndex == 3
+                      ? Container(
+                          width: 45,
+                          height: 45,
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(30),
                           ),
-                          const Center(
-                            child: Icon(
-                              Icons.card_travel,
-                              color: Colors.white,
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  : const Icon(
-                      Icons.card_travel,
-                    ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: _selectedIndex == 4
-                  ? SizedBox(
-                      width: 45,
-                      height: 45,
-                      child: Stack(
-                        children: [
-                          Container(
-                            width: 45,
-                            height: 45,
-                            decoration: const BoxDecoration(
-                                color: Colors.red,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30))),
+                          child: const Icon(Icons.card_travel,
+                              color: Colors.white),
+                        )
+                      : const SizedBox(
+                          width: 45,
+                          height: 45,
+                          child: Icon(Icons.card_travel, color: Colors.grey),
+                        )),
+              GestureDetector(
+                  onTap: () => _onItemTapped(4),
+                  child: _selectedIndex == 4
+                      ? Container(
+                          width: 45,
+                          height: 45,
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(30),
                           ),
-                          const Center(
-                            child: Icon(
-                              Icons.person,
-                              color: Colors.white,
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  : const Icon(
-                      Icons.person,
-                    ),
-              label: '',
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.red,
-          onTap: _onItemTapped,
-        ),
-      ),
-    );
+                          child: const Icon(Icons.person, color: Colors.white),
+                        )
+                      : const SizedBox(
+                          width: 45,
+                          height: 45,
+                          child: Icon(Icons.person, color: Colors.grey),
+                        )),
+            ],
+          ),
+        ));
   }
 }

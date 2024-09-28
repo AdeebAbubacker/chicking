@@ -73,53 +73,51 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       children: [
                         const SizedBox(height: 90),
                         Center(
-                          child: SizedBox(
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.red,
+                                borderRadius: BorderRadius.circular(25)),
                             height: 41,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
-                                backgroundColor: Colors.red,
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 0),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  IconButton(
-                                      onPressed: () {
-                                        setState(() {
+                            width: 125,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        if (currentvalue > 0) {
                                           currentvalue -= 1;
-                                        });
-                                      },
-                                      icon: const Icon(
-                                        Icons.remove,
-                                        color: Colors.white,
-                                      )),
-                                  const SizedBox(width: 4),
-                                  Text(
-                                    '$currentvalue',
-                                    style: const TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
+                                        }
+                                      });
+                                    },
+                                    icon: const Icon(
+                                      Icons.remove,
                                       color: Colors.white,
-                                    ),
+                                    )),
+                                Text(
+                                  '$currentvalue',
+                                  style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
                                   ),
-                                  const SizedBox(width: 4),
-                                  IconButton(
-                                      onPressed: () {
+                                ),
+                                IconButton(
+                                    onPressed: () {
+                                      setState(() {
                                         setState(() {
-                                          currentvalue += 1;
+                                          if (currentvalue < 99) {
+                                            currentvalue += 1;
+                                          }
                                         });
-                                      },
-                                      icon: const Icon(
-                                        Icons.add,
-                                        color: Colors.white,
-                                      )),
-                                ],
-                              ),
+                                      });
+                                    },
+                                    icon: const Icon(
+                                      Icons.add,
+                                      color: Colors.white,
+                                    )),
+                              ],
                             ),
                           ),
                         ),
@@ -156,7 +154,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             )
                           ],
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         const Row(
                           children: [
                             Icon(Icons.star, color: Colors.yellow),

@@ -86,8 +86,8 @@ class Section3 extends StatelessWidget {
               spacing: 20,
               children: [
                 Container(
-                  width: 75,
-                  height: 88,
+                  width: 70,
+                  height: 82,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
@@ -121,8 +121,8 @@ class Section3 extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  width: 75,
-                  height: 88,
+                  width: 70,
+                  height: 82,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
@@ -156,8 +156,8 @@ class Section3 extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  width: 75,
-                  height: 88,
+                  width: 70,
+                  height: 82,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
@@ -191,8 +191,8 @@ class Section3 extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  width: 75,
-                  height: 88,
+                  width: 70,
+                  height: 82,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
