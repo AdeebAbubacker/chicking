@@ -228,6 +228,8 @@ class Section3 extends StatelessWidget {
           ),
           const SizedBox(height: 30),
           const TopRatedFood(),
+          const SizedBox(height: 30),
+          RestaurantNearYou()
         ],
       ),
     );
@@ -252,22 +254,8 @@ class TopRatedFood extends StatelessWidget {
             style: TextStyles.rubik16blackW600,
           ),
           const SizedBox(height: 10),
-          // Wrap(
-          //   children: [
-          //     Container(
-          //       width: 50,
-          //       height: 50,
-          //       color: Colors.red,
-          //     ),
-          //     Container(
-          //       width: 50,
-          //       height: 50,
-          //       color: Colors.red,
-          //     ),
-          //   ],
-          // ),
           SizedBox(
-            height: 190,
+            height: 200,
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
@@ -275,11 +263,171 @@ class TopRatedFood extends StatelessWidget {
               itemCount: 10,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  padding: const EdgeInsets.only(
+                      right: 8, bottom: 8, top: 8, left: 3),
                   child: Container(
                     width: 165,
-                    height: 10,
-                    color: Colors.red,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(
+                              0.5), // Shadow color with some opacity
+                          spreadRadius: 1, // How much the shadow spreads
+                          blurRadius: 4, // How blurry the shadow is
+                          offset: Offset(
+                              0, 3), // Offset of the shadow (x-axis, y-axis)
+                        ),
+                      ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(
+                                12), // Set the border radius for rounded edges
+                            child: SizedBox(
+                              height: 100,
+                              width: double.infinity, // Set to maximum width
+                              child: Image.asset(
+                                'assets/image-2.jpg',
+                                fit: BoxFit
+                                    .cover, // Adjusts the image to cover the width
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          Text(
+                            "Burger beef anjaz",
+                            style: TextStyles.rubik14blackW600,
+                          ),
+                          const SizedBox(height: 5),
+                          Row(
+                            children: [
+                              Text(
+                                'Burger Bos',
+                                style: TextStyles.rubik12greyW600,
+                              ),
+                              Spacer(),
+                              Text(
+                                'Rs 45.0',
+                                style: TextStyles.rubik14blackW600,
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class RestaurantNearYou extends StatelessWidget {
+  const RestaurantNearYou({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            children: [
+              Text(
+                "Restaurant near you",
+                style: TextStyles.rubik16blackW600,
+              ),
+              Spacer(),
+              Text(
+                "View all",
+                style: TextStyles.rubik12greyW600,
+              )
+            ],
+          ),
+          const SizedBox(height: 10),
+          SizedBox(
+            height: 200,
+            child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.only(
+                      right: 8, bottom: 8, top: 8, left: 3),
+                  child: Container(
+                    width: 165,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(
+                              0.5), // Shadow color with some opacity
+                          spreadRadius: 1, // How much the shadow spreads
+                          blurRadius: 4, // How blurry the shadow is
+                          offset: Offset(
+                              0, 3), // Offset of the shadow (x-axis, y-axis)
+                        ),
+                      ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(
+                                12), // Set the border radius for rounded edges
+                            child: SizedBox(
+                              height: 100,
+                              width: double.infinity, // Set to maximum width
+                              child: Image.asset(
+                                'assets/image-2.jpg',
+                                fit: BoxFit
+                                    .cover, // Adjusts the image to cover the width
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          Text(
+                            "Burger beef anjaz",
+                            style: TextStyles.rubik14blackW600,
+                          ),
+                          const SizedBox(height: 5),
+                          Row(
+                            children: [
+                              Text(
+                                'Burger Bos',
+                                style: TextStyles.rubik12greyW600,
+                              ),
+                              Spacer(),
+                              Text(
+                                'Rs 45.0',
+                                style: TextStyles.rubik14blackW600,
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 );
               },

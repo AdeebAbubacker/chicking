@@ -12,7 +12,7 @@ class HomeLayout extends StatefulWidget {
 }
 
 class _HomeLayoutState extends State<HomeLayout> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 2;
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -29,6 +29,7 @@ class _HomeLayoutState extends State<HomeLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 247, 247, 247),
       body: _screens[_selectedIndex],
       bottomNavigationBar: SizedBox(
         height: 80.0, // Set the height for the BottomNavigationBar
