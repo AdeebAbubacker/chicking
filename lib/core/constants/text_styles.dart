@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class TextStyles {
   static final rubik = GoogleFonts.rubik();
+  static final nunito = GoogleFonts.nunito();
 
   // Naming convention: [fontFamily]_[fontSize]_[color]_[fontWeight]
 
@@ -25,17 +26,22 @@ class TextStyles {
   static final TextStyle rubik12WredeW500 = rubik.copyWith(
     fontSize: 12,
     fontWeight: FontWeight.w600,
-    color: Color(0XFFC7838E),
+    color: const Color(0XFFC7838E),
   );
   static final TextStyle rubik14WredeW600 = rubik.copyWith(
     fontSize: 14,
     fontWeight: FontWeight.w600,
-    color: Color(0XFFE01741),
+    color: const Color(0XFFE01741),
   );
 
   static final TextStyle rubik16blackW600 = rubik.copyWith(
     fontSize: 16,
     fontWeight: FontWeight.w600,
+    color: Colors.black,
+  );
+  static final TextStyle rubik16blackW700 = rubik.copyWith(
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
     color: Colors.black,
   );
   static final TextStyle rubik14blackW600 = rubik.copyWith(
@@ -52,5 +58,30 @@ class TextStyles {
     fontSize: 12,
     fontWeight: FontWeight.w600,
     color: const Color.fromARGB(255, 35, 35, 35),
+  );
+  static final TextStyle rubik12bluegreyW500 = rubik.copyWith(
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+    color: const Color.fromARGB(255, 35, 35, 35),
+  );
+  static final TextStyle rubik20black700 = rubik.copyWith(
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+    color: const Color.fromARGB(255, 6, 6, 6),
+  );
+  static final TextStyle rubik20red700 = rubik.copyWith(
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+    color: const Color(0XFFDA323F),
+  );
+  static final TextStyle rubik14bluegreyW500 = rubik.copyWith(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: const Color.fromARGB(255, 77, 77, 77),
+  );
+  static final TextStyle nunito14greyW600 = nunito.copyWith(
+    fontSize: 15,
+    fontWeight: FontWeight.w600,
+    color: const Color.fromARGB(255, 86, 86, 86),
   );
 }

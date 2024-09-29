@@ -1,3 +1,4 @@
+import 'package:auxzon/core/constants/text_styles.dart';
 import 'package:auxzon/core/functions/audio_player.dart';
 import 'package:auxzon/main.dart';
 import 'package:auxzon/testing/testing.dart';
@@ -84,7 +85,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const SizedBox(height: 90),
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height *
+                                0.15), // 15% of screen height
                         Center(
                           child: Container(
                             decoration: BoxDecoration(
@@ -97,18 +100,19 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        if (currentvalue > 0) {
-                                          _playAudio('assets/counter.mp3');
-                                          currentvalue -= 1;
-                                        }
-                                      });
-                                    },
-                                    icon: const Icon(
-                                      Icons.remove,
-                                      color: Colors.white,
-                                    )),
+                                  onPressed: () {
+                                    setState(() {
+                                      if (currentvalue > 0) {
+                                        _playAudio('assets/counter.mp3');
+                                        currentvalue -= 1;
+                                      }
+                                    });
+                                  },
+                                  icon: const Icon(
+                                    Icons.remove,
+                                    color: Colors.white,
+                                  ),
+                                ),
                                 Text(
                                   '$currentvalue',
                                   style: const TextStyle(
@@ -118,24 +122,27 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   ),
                                 ),
                                 IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                  _playAudio('assets/counter.mp3');
-                                        if (currentvalue < 99) {
-                                          currentvalue += 1;
-                                        }
-                                      });
-                                    },
-                                    icon: const Icon(
-                                      Icons.add,
-                                      color: Colors.white,
-                                    )),
+                                  onPressed: () {
+                                    setState(() {
+                                      _playAudio('assets/counter.mp3');
+                                      if (currentvalue < 99) {
+                                        currentvalue += 1;
+                                      }
+                                    });
+                                  },
+                                  icon: const Icon(
+                                    Icons.add,
+                                    color: Colors.white,
+                                  ),
+                                ),
                               ],
                             ),
                           ),
                         ),
-                        const SizedBox(height: 40),
-                        const Row(
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height *
+                                0.05), // 5% of screen height
+                        Row(
                           children: [
                             Column(
                               mainAxisSize: MainAxisSize.min,
@@ -143,73 +150,63 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               children: [
                                 Text(
                                   'Beef Burger',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  style: TextStyles.rubik16blackW700,
                                 ),
                                 Text(
                                   'Cheesy Mozarella',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Colors.grey,
-                                  ),
+                                  style: TextStyles.rubik12bluegreyW500,
                                 ),
                               ],
                             ),
-                            Spacer(),
-                            Text(
-                              "Rs 6.89",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                            const Spacer(),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                      text: '\$', // Red currency symbol
+                                      style: TextStyles.rubik20red700),
+                                  TextSpan(
+                                      text: ' 6.89', // Default amount color
+                                      style: TextStyles.rubik20black700),
+                                ],
                               ),
-                            )
+                            ),
                           ],
                         ),
-                        const SizedBox(height: 20),
-                        const Row(
-                          children: [
-                            Icon(Icons.star, color: Colors.yellow),
-                            Text('4.8'),
-                            SizedBox(width: 10),
-                            Icon(Icons.bolt, color: Colors.orange),
-                            Text('150 Kcal'),
-                            SizedBox(width: 10),
-                            Icon(Icons.timer, color: Colors.green),
-                            Text('5-10 Min'),
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-                        const Text(
-                          'This beef burger uses 100% quality beef with sliced tomatoes, cucumbers, vegetables and onions. Read More',
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                        const SizedBox(height: 20),
                         SizedBox(
-                          width: double.infinity,
-                          height: 49,
-                          child: ElevatedButton(
-                            onPressed: () {
-                            _playAudio('assets/added to cart.mp3');
-                            },
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              backgroundColor: Colors.red,
+                            height: MediaQuery.of(context).size.height * 0.02),
+                        Row(
+                          children: [
+                            const Icon(Icons.star, color: Colors.yellow),
+                            const SizedBox(width: 2),
+                            Text(
+                              '4.8',
+                              style: TextStyles.rubik14bluegreyW500,
                             ),
-                            child: const Text(
-                              'Add to Cart',
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
+                            const SizedBox(width: 10),
+                            const Icon(Icons.bolt, color: Colors.orange),
+                            const SizedBox(width: 2),
+                            Text(
+                              '150 Kcal',
+                              style: TextStyles.rubik14bluegreyW500,
                             ),
-                          ),
+                            const SizedBox(width: 10),
+                            const Icon(Icons.timer, color: Colors.green),
+                            const SizedBox(width: 2),
+                            Text(
+                              '5-10 Min',
+                              style: TextStyles.rubik14bluegreyW500,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.02),
+                        const ProductDescriptionWidget(
+                          dynamicText:
+                              'This beef burger uses 100% quality beef with sliced tomatoes, cucumbers, vegetables and onions.',
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.05,
                         ),
                       ],
                     ),
@@ -228,9 +225,95 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 ),
               ),
             ),
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: MediaQuery.of(context).size.height * 0.02,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: SizedBox(
+                  width: double.infinity,
+                  height: 49,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _playAudio('assets/added to cart.mp3');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      backgroundColor: Colors.red,
+                    ),
+                    child: const Text(
+                      'Add to Cart',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
     );
+  }
+
+  String truncateWithReadMore(String text, int limit) {
+    if (text.length > limit) {
+      return '${text.substring(0, limit)}...';
+    } else {
+      return text;
+    }
+  }
+}
+
+class ProductDescriptionWidget extends StatelessWidget {
+  final String dynamicText;
+  const ProductDescriptionWidget({
+    super.key,
+    required this.dynamicText,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: truncateWithReadMore(
+              dynamicText, // Replace with your dynamic text variable
+              70,
+            ),
+            style: TextStyles.nunito14greyW600, // Normal text style
+          ),
+          if (dynamicText.length >
+              40) // Show "Read More" only if text exceeds 120 characters
+            TextSpan(
+              text: 'Read More',
+              style: TextStyle(
+                fontSize:
+                    TextStyles.nunito14greyW600.fontSize, // Match the font size
+                fontWeight:
+                    TextStyles.nunito14greyW600.fontWeight, // Match font weight
+                fontFamily:
+                    TextStyles.nunito14greyW600.fontFamily, // Match font family
+                color: Colors.red, // Red color for "Read More"
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+
+  String truncateWithReadMore(String text, int limit) {
+    if (text.length > limit) {
+      return '${text.substring(0, limit)}...';
+    } else {
+      return text;
+    }
   }
 }
