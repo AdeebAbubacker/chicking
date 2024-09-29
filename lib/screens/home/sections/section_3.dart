@@ -1,4 +1,5 @@
 import 'package:auxzon/core/constants/text_styles.dart';
+import 'package:auxzon/core/model/category_model.dart';
 import 'package:auxzon/core/model/food_model.dart';
 import 'package:auxzon/core/routes/app_routes.dart';
 import 'package:auxzon/screens/product/product_screen.dart';
@@ -608,7 +609,7 @@ class RestaurantNearYou extends StatelessWidget {
                   padding: const EdgeInsets.only(right: 8, top: 8, left: 3),
                   child: SizedBox(
                     width: 130,
-                    height: 150,
+                    height: 195,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -630,15 +631,15 @@ class RestaurantNearYou extends StatelessWidget {
                           child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const SizedBox(height: 10),
+                                const SizedBox(height: 6),
                                 Text(
                                   foodList[index].shop,
-                                  style: TextStyles.rubik14blackW600,
+                                  style: TextStyles.rubik15blackW600,
                                 ),
                                 const SizedBox(height: 5),
                                 Text(
                                   "${foodList[index].timing} mins",
-                                  style: TextStyles.rubik12bluegreyW500,
+                                  style: TextStyles.montserrat14blackW500,
                                 ),
                               ]),
                         ),
@@ -656,10 +657,72 @@ class RestaurantNearYou extends StatelessWidget {
 }
 
 class WhatsOnYourMind extends StatelessWidget {
-  const WhatsOnYourMind({
+  WhatsOnYourMind({
     super.key,
   });
 
+  List<CategoryModel> categoryList = [
+    const CategoryModel(
+      img: 'assets/mind categories/biriyani.png',
+      title: 'Biriyani',
+    ),
+    const CategoryModel(
+      img: 'assets/mind categories/burgers.png',
+      title: 'Burgers',
+    ),
+    const CategoryModel(
+      img: 'assets/mind categories/coffee.png',
+      title: 'Coffee',
+    ),
+    const CategoryModel(
+      img: 'assets/mind categories/dosa.png',
+      title: 'Dosa',
+    ),
+    const CategoryModel(
+      img: 'assets/mind categories/idli.png',
+      title: 'Idli',
+    ),
+    const CategoryModel(
+      img: 'assets/mind categories/noodles.png',
+      title: 'Noodles',
+    ),
+    const CategoryModel(
+      img: 'assets/mind categories/pancakes.png',
+      title: 'Pancakes',
+    ),
+    const CategoryModel(
+      img: 'assets/mind categories/pastry.png',
+      title: 'Pastry',
+    ),
+    const CategoryModel(
+      img: 'assets/mind categories/pizzas.png',
+      title: 'Pizzas',
+    ),
+    const CategoryModel(
+      img: 'assets/mind categories/poori.png',
+      title: 'Poori',
+    ),
+    const CategoryModel(
+      img: 'assets/mind categories/porota.png',
+      title: 'Porota',
+    ),
+    const CategoryModel(
+      img: 'assets/mind categories/pothichoru.png',
+      title: 'Pothichoru',
+    ),
+    const CategoryModel(
+      img: 'assets/mind categories/rolls.png',
+      title: 'Roll',
+    ),
+    const CategoryModel(
+      img: 'assets/mind categories/shawarma.png',
+      title: 'Shawarma',
+    ),
+    const CategoryModel(
+      img: 'assets/mind categories/uttapam.png',
+      title: 'Uttapam',
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -672,7 +735,7 @@ class WhatsOnYourMind extends StatelessWidget {
             children: [
               Text(
                 "VISHNU, WHAT'S ON YOUR MIND ?",
-                style: TextStyles.rubik12gblackyW500,
+                style: TextStyles.rubik14gblackyW500,
               ),
             ],
           ),
@@ -685,20 +748,29 @@ class WhatsOnYourMind extends StatelessWidget {
               shrinkWrap: true,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, // 2 rows
-                crossAxisSpacing: 8, // Spacing between columns
-                mainAxisSpacing: 8, // Spacing between rows
-                childAspectRatio: 1 / 1.6, // Aspect ratio to control item size
+                // crossAxisSpacing: 8, // Spacing between columns
+                // mainAxisSpacing: 8, // Spacing between rows
+                childAspectRatio:
+                    16 / 12, // Aspect ratio to control item size (1 for square)
               ),
-              itemCount: 10, // Number of items
+              itemCount: categoryList.length, // Number of items
               itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.only(
-                      right: 8, bottom: 8, top: 8, left: 3),
-                  child: InkWell(
-                      onTap: () {
-                        // AppRoutes.navigateToProductScreen(context);
-                      },
-                      child: Text('data')),
+                return Column(
+                  children: [
+                    SizedBox(
+                      width: 70,
+                      height: 70,
+                      child: Image.asset(
+                        categoryList[index].img,
+                      ),
+                    ),
+                    Center(
+                      child: Text(
+                        categoryList[index].title,
+                        style: TextStyles.nunito,
+                      ),
+                    ),
+                  ],
                 );
               },
             ),
