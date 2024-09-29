@@ -6,7 +6,7 @@ class Section2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: const Text('Section 2'),
+      child: Image.asset('assets/animated/No Data Available.gif'),
     );
   }
 }

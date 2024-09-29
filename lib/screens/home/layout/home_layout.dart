@@ -2,6 +2,7 @@ import 'package:auxzon/screens/home/sections/section_1.dart';
 import 'package:auxzon/screens/home/sections/section_2.dart';
 import 'package:auxzon/screens/home/sections/section_3.dart';
 import 'package:auxzon/screens/home/sections/section_4.dart';
+import 'package:auxzon/screens/home/sections/section_5.dart';
 import 'package:flutter/material.dart';
 
 class HomeLayout extends StatefulWidget {
@@ -24,15 +25,21 @@ class _HomeLayoutState extends State<HomeLayout> {
     const Section2(),
     const Section3(),
     const Section4(),
-    const Section4(),
+    const Section5(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 247, 247, 247),
+        backgroundColor: (_selectedIndex == 0 ||
+                _selectedIndex == 1 ||
+                _selectedIndex == 3 ||
+                _selectedIndex == 4)
+            ? Color(0XFFFCFCFF)
+            : Color.fromARGB(255, 247, 247, 247),
+        // backgroundColor:  if(_selectedIndex) const Color.fromARGB(255, 247, 247, 247),
         body: _screens[_selectedIndex],
         bottomNavigationBar: Container(
-          height: 60.0,
+          height: 70.0,
           decoration: BoxDecoration(
             color: Colors.white,
             boxShadow: [
@@ -51,8 +58,8 @@ class _HomeLayoutState extends State<HomeLayout> {
                   onTap: () => _onItemTapped(0),
                   child: _selectedIndex == 0
                       ? Container(
-                          width: 45,
-                          height: 45,
+                          width: 60,
+                          height: 60,
                           decoration: BoxDecoration(
                             color: Colors.red,
                             borderRadius: BorderRadius.circular(30),
@@ -60,16 +67,16 @@ class _HomeLayoutState extends State<HomeLayout> {
                           child: const Icon(Icons.search, color: Colors.white),
                         )
                       : const SizedBox(
-                          width: 45,
-                          height: 45,
+                          width: 60,
+                          height: 60,
                           child: Icon(Icons.search, color: Colors.grey),
                         )),
               GestureDetector(
                   onTap: () => _onItemTapped(1),
                   child: _selectedIndex == 1
                       ? Container(
-                          width: 45,
-                          height: 45,
+                          width: 60,
+                          height: 60,
                           decoration: BoxDecoration(
                             color: Colors.red,
                             borderRadius: BorderRadius.circular(30),
@@ -78,16 +85,16 @@ class _HomeLayoutState extends State<HomeLayout> {
                               const Icon(Icons.favorite, color: Colors.white),
                         )
                       : const SizedBox(
-                          width: 45,
-                          height: 45,
+                          width: 60,
+                          height: 60,
                           child: Icon(Icons.favorite, color: Colors.grey),
                         )),
               GestureDetector(
                   onTap: () => _onItemTapped(2),
                   child: _selectedIndex == 2
                       ? Container(
-                          width: 45,
-                          height: 45,
+                          width: 60,
+                          height: 60,
                           decoration: BoxDecoration(
                             color: Colors.red,
                             borderRadius: BorderRadius.circular(30),
@@ -95,16 +102,16 @@ class _HomeLayoutState extends State<HomeLayout> {
                           child: const Icon(Icons.home, color: Colors.white),
                         )
                       : const SizedBox(
-                          width: 45,
-                          height: 45,
+                          width: 60,
+                          height: 60,
                           child: Icon(Icons.home, color: Colors.grey),
                         )),
               GestureDetector(
                   onTap: () => _onItemTapped(3),
                   child: _selectedIndex == 3
                       ? Container(
-                          width: 45,
-                          height: 45,
+                          width: 60,
+                          height: 60,
                           decoration: BoxDecoration(
                             color: Colors.red,
                             borderRadius: BorderRadius.circular(30),
@@ -113,16 +120,16 @@ class _HomeLayoutState extends State<HomeLayout> {
                               color: Colors.white),
                         )
                       : const SizedBox(
-                          width: 45,
-                          height: 45,
+                          width: 60,
+                          height: 60,
                           child: Icon(Icons.card_travel, color: Colors.grey),
                         )),
               GestureDetector(
                   onTap: () => _onItemTapped(4),
                   child: _selectedIndex == 4
                       ? Container(
-                          width: 45,
-                          height: 45,
+                          width: 60,
+                          height: 60,
                           decoration: BoxDecoration(
                             color: Colors.red,
                             borderRadius: BorderRadius.circular(30),
@@ -130,8 +137,8 @@ class _HomeLayoutState extends State<HomeLayout> {
                           child: const Icon(Icons.person, color: Colors.white),
                         )
                       : const SizedBox(
-                          width: 45,
-                          height: 45,
+                          width: 60,
+                          height: 60,
                           child: Icon(Icons.person, color: Colors.grey),
                         )),
             ],
