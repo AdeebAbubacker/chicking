@@ -174,13 +174,19 @@ class Section3 extends StatelessWidget {
                         width: 40,
                         height: 40,
                         decoration: const BoxDecoration(
-                            color: Color(0XFFFBD3DB),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(30))),
-                        child: const Center(
-                          child: Icon(
-                            Icons.rice_bowl_sharp,
-                            color: Color.fromARGB(255, 104, 104, 104),
+                          color: Color(0XFFFBD3DB),
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                        ),
+                        child: Center(
+                          child: SizedBox(
+                            width: 25,
+                            height: 25,
+                            child: Image.asset(
+                              'assets/icons/rice.png',
+                              fit: BoxFit
+                                  .contain, // Ensure the image fits within the 20x20 box
+                              color: const Color.fromARGB(255, 131, 131, 131),
+                            ),
                           ),
                         ),
                       ),
@@ -209,13 +215,20 @@ class Section3 extends StatelessWidget {
                         width: 40,
                         height: 40,
                         decoration: const BoxDecoration(
-                            color: Color(0XFFFBD3DB),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(30))),
-                        child: const Center(
-                          child: Icon(
-                            Icons.emoji_food_beverage_outlined,
-                            color: Color.fromARGB(255, 104, 104, 104),
+                          color: Color(0XFFFBD3DB),
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                        ),
+                        child: Center(
+                          child: SizedBox(
+                            width: 25,
+                            height: 25,
+                            child: Image.asset(
+                              'assets/icons/snacks.png',
+                              fit: BoxFit
+                                  .contain, // Ensure the image fits within the 20x20 box
+
+                              color: const Color.fromARGB(255, 131, 131, 131),
+                            ),
                           ),
                         ),
                       ),
@@ -244,13 +257,19 @@ class Section3 extends StatelessWidget {
                         width: 40,
                         height: 40,
                         decoration: const BoxDecoration(
-                            color: Color(0XFFFBD3DB),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(30))),
-                        child: const Center(
-                          child: Icon(
-                            Icons.beenhere,
-                            color: Color.fromARGB(255, 104, 104, 104),
+                          color: Color(0XFFFBD3DB),
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                        ),
+                        child: Center(
+                          child: SizedBox(
+                            width: 25,
+                            height: 25,
+                            child: Image.asset(
+                              'assets/icons/juice.png',
+                              fit: BoxFit
+                                  .contain, // Ensure the image fits within the 20x20 box
+                              color: const Color.fromARGB(255, 131, 131, 131),
+                            ),
                           ),
                         ),
                       ),
@@ -279,13 +298,19 @@ class Section3 extends StatelessWidget {
                         width: 40,
                         height: 40,
                         decoration: const BoxDecoration(
-                            color: Color(0XFFFBD3DB),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(30))),
-                        child: const Center(
-                          child: Icon(
-                            Icons.category_outlined,
-                            color: Color.fromARGB(255, 104, 104, 104),
+                          color: Color(0XFFFBD3DB),
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                        ),
+                        child: Center(
+                          child: SizedBox(
+                            width: 25,
+                            height: 25,
+                            child: Image.asset(
+                              'assets/icons/more.png',
+                              fit: BoxFit
+                                  .contain, // Ensure the image fits within the 20x20 box
+                              color: const Color.fromARGB(255, 131, 131, 131),
+                            ),
                           ),
                         ),
                       ),
@@ -400,34 +425,142 @@ class TopRatedFood extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.only(
                       right: 8, bottom: 8, top: 8, left: 3),
-                  child: InkWell(
-                    onTap: () {
-                      // AppRoutes.navigateToProductScreen(context);
-                      Navigator.push(context, MaterialPageRoute(
-                        builder: (context) {
-                          return ProductDetailScreen(
-                            foodModel: foodList[index],
-                          );
-                        },
-                      ));
-                    },
-                    child: Card(
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      elevation: 4, // This controls the shadow effect
-                      shadowColor: Colors.grey.withOpacity(0.5),
-                      child: SizedBox(
-                        width: 165,
-                        height: 200,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              ClipRRect(
+                  child:
+
+                      // InkWell(
+                      //   onTap: () {
+                      //     // AppRoutes.navigateToProductScreen(context);
+                      //     Navigator.push(context, MaterialPageRoute(
+                      //       builder: (context) {
+                      //         return ProductDetailScreen(
+                      //           foodModel: foodList[index],
+                      //         );
+                      //       },
+                      //     ));
+                      //   },
+                      //   child: Card(
+                      //     color: Colors.white,
+                      //     shape: RoundedRectangleBorder(
+                      //       borderRadius: BorderRadius.circular(12),
+                      //     ),
+                      //     elevation: 4, // This controls the shadow effect
+                      //     shadowColor: Colors.grey.withOpacity(0.5),
+                      //     child: SizedBox(
+                      //       width: 165,
+                      //       height: 200,
+                      //       child: Padding(
+                      //         padding: const EdgeInsets.all(8.0),
+                      //         child: Column(
+                      //           crossAxisAlignment: CrossAxisAlignment.start,
+                      //           mainAxisSize: MainAxisSize.min,
+                      //           children: [
+                      //             ClipRRect(
+                      //                 borderRadius: BorderRadius.circular(12),
+                      //                 child: Stack(
+                      //                   children: [
+                      //                     SizedBox(
+                      //                       height: 100,
+                      //                       width: double.infinity,
+                      //                       child: Image.asset(
+                      //                         foodList[index].img,
+                      //                         fit: BoxFit.cover,
+                      //                       ),
+                      //                     ),
+                      //                     Positioned(
+                      //                       top: 10,
+                      //                       left: 10,
+                      //                       child: Container(
+                      //                         decoration: BoxDecoration(
+                      //                             color: const Color.fromARGB(
+                      //                                 255, 235, 235, 235),
+                      //                             borderRadius:
+                      //                                 BorderRadius.circular(9)),
+                      //                         child: Padding(
+                      //                           padding: const EdgeInsets.symmetric(
+                      //                               horizontal: 5),
+                      //                           child: Row(
+                      //                             children: [
+                      //                               Icon(
+                      //                                 Icons.star,
+                      //                                 color: Colors.amber[700],
+                      //                               ),
+                      //                               Text(
+                      //                                 '(${foodList[index].rating})',
+                      //                                 style: TextStyles
+                      //                                     .rubik12bluegreyW600,
+                      //                               )
+                      //                             ],
+                      //                           ),
+                      //                         ),
+                      //                       ),
+                      //                     ),
+                      //                   ],
+                      //                 )),
+                      //             const SizedBox(height: 10),
+                      //             Text(
+                      //               foodList[index].food.length > 14
+                      //                   ? '${foodList[index].food.substring(0, 14)}...'
+                      //                   : foodList[index].food,
+                      //               style: TextStyles.rubik14blackW600,
+                      //             ),
+                      //             const SizedBox(height: 5),
+                      //             Row(
+                      //               children: [
+                      //                 Text(
+                      //                   foodList[index].shop,
+                      //                   style: TextStyles.rubik12greyW600,
+                      //                 ),
+                      //                 const Spacer(),
+                      //                 Text(
+                      //                   foodList[index].price,
+                      //                   style: TextStyles.rubik14blackW600,
+                      //                 )
+                      //               ],
+                      //             ),
+                      //           ],
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
+
+                      Material(
+                    color: Colors
+                        .transparent, // Set the color to transparent so the card's color is visible
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return ProductDetailScreen(
+                                foodModel: foodList[index],
+                              );
+                            },
+                          ),
+                        );
+                      },
+                      borderRadius: BorderRadius.circular(
+                          12), // Add border radius to match the card
+                      splashColor: Colors.grey
+                          .withOpacity(0.3), // Customize the splash color
+                      child: Card(
+                        color: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        elevation: 4, // This controls the shadow effect
+                        shadowColor: Colors.grey.withOpacity(0.5),
+                        child: SizedBox(
+                          width: 165,
+                          height: 200,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                ClipRRect(
                                   borderRadius: BorderRadius.circular(12),
                                   child: Stack(
                                     children: [
@@ -444,10 +577,11 @@ class TopRatedFood extends StatelessWidget {
                                         left: 10,
                                         child: Container(
                                           decoration: BoxDecoration(
-                                              color: const Color.fromARGB(
-                                                  255, 235, 235, 235),
-                                              borderRadius:
-                                                  BorderRadius.circular(9)),
+                                            color: const Color.fromARGB(
+                                                255, 235, 235, 235),
+                                            borderRadius:
+                                                BorderRadius.circular(9),
+                                          ),
                                           child: Padding(
                                             padding: const EdgeInsets.symmetric(
                                                 horizontal: 5),
@@ -461,36 +595,38 @@ class TopRatedFood extends StatelessWidget {
                                                   '(${foodList[index].rating})',
                                                   style: TextStyles
                                                       .rubik12bluegreyW600,
-                                                )
+                                                ),
                                               ],
                                             ),
                                           ),
                                         ),
                                       ),
                                     ],
-                                  )),
-                              const SizedBox(height: 10),
-                              Text(
-                                foodList[index].food.length > 14
-                                    ? '${foodList[index].food.substring(0, 14)}...'
-                                    : foodList[index].food,
-                                style: TextStyles.rubik14blackW600,
-                              ),
-                              const SizedBox(height: 5),
-                              Row(
-                                children: [
-                                  Text(
-                                    foodList[index].shop,
-                                    style: TextStyles.rubik12greyW600,
                                   ),
-                                  const Spacer(),
-                                  Text(
-                                    foodList[index].price,
-                                    style: TextStyles.rubik14blackW600,
-                                  )
-                                ],
-                              ),
-                            ],
+                                ),
+                                const SizedBox(height: 10),
+                                Text(
+                                  foodList[index].food.length > 14
+                                      ? '${foodList[index].food.substring(0, 14)}...'
+                                      : foodList[index].food,
+                                  style: TextStyles.rubik14blackW600,
+                                ),
+                                const SizedBox(height: 5),
+                                Row(
+                                  children: [
+                                    Text(
+                                      foodList[index].shop,
+                                      style: TextStyles.rubik12greyW600,
+                                    ),
+                                    const Spacer(),
+                                    Text(
+                                      foodList[index].price,
+                                      style: TextStyles.rubik14blackW600,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),

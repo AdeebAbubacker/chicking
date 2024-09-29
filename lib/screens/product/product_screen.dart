@@ -48,22 +48,30 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Row(
                     children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: Container(
-                          width: 40,
-                          height: 40,
-                          decoration: const BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(8),
+                      Material(
+                        color: Colors
+                            .transparent, // Make the Material widget transparent so the container's color shows
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.of(context).pop();
+                          },
+                          borderRadius: BorderRadius.circular(
+                              8), // Match the borderRadius of the container
+                          splashColor: Colors.grey
+                              .withOpacity(0.3), // Customize the splash color
+                          child: Container(
+                            width: 40,
+                            height: 40,
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(8),
+                              ),
                             ),
-                          ),
-                          child: const Icon(
-                            Icons.arrow_back_ios_new,
-                            color: Color.fromARGB(255, 205, 83, 109),
+                            child: const Icon(
+                              Icons.arrow_back_ios_new,
+                              color: Color.fromARGB(255, 205, 83, 109),
+                            ),
                           ),
                         ),
                       ),
@@ -195,21 +203,27 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             height: MediaQuery.of(context).size.height * 0.02),
                         Row(
                           children: [
-                            const Icon(Icons.star, color: Colors.yellow),
+                            const Icon(Icons.star,
+                                color: Color.fromARGB(255, 122, 122, 122)),
                             const SizedBox(width: 2),
                             Text(
                               '${widget.foodModel?.rating}',
                               style: TextStyles.rubik14bluegreyW500,
                             ),
                             const SizedBox(width: 10),
-                            const Icon(Icons.bolt, color: Colors.orange),
+                            Image.asset(
+                              'assets/icons/calories.png',
+                              width: 20,
+                              height: 20,
+                            ),
                             const SizedBox(width: 2),
                             Text(
                               '150 Kcal',
                               style: TextStyles.rubik14bluegreyW500,
                             ),
                             const SizedBox(width: 10),
-                            const Icon(Icons.timer, color: Colors.green),
+                            const Icon(Icons.timer,
+                                color: Color.fromARGB(255, 122, 122, 122)),
                             const SizedBox(width: 2),
                             Text(
                               '5-10 Min',
@@ -418,10 +432,8 @@ class CartSuccesspopup extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            Text(
-              isTemAdded
-                  ? 'Your Item has been already added to cart!'
-                  : 'Your Item has been added to cart!',
+            const Text(
+              'Your Item has been added to cart!',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
