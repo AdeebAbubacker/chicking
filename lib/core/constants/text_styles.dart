@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 class TextStyles {
   static final rubik = GoogleFonts.rubik();
   static final nunito = GoogleFonts.nunito();
+  static final montserrat = GoogleFonts.montserrat();
 
   // Naming convention: [fontFamily]_[fontSize]_[color]_[fontWeight]
 
@@ -53,6 +54,11 @@ class TextStyles {
     fontSize: 12,
     fontWeight: FontWeight.w600,
     color: Colors.grey,
+  );
+  static final TextStyle rubik12gblackyW500 = montserrat.copyWith(
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+    color: Colors.black,
   );
   static final TextStyle rubik12bluegreyW600 = rubik.copyWith(
     fontSize: 12,

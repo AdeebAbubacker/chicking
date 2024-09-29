@@ -302,7 +302,9 @@ class Section3 extends StatelessWidget {
           const SizedBox(height: 30),
           TopRatedFood(),
           const SizedBox(height: 30),
-          const RestaurantNearYou()
+          RestaurantNearYou(),
+          const SizedBox(height: 30),
+          WhatsOnYourMind()
         ],
       ),
     );
@@ -504,10 +506,74 @@ class TopRatedFood extends StatelessWidget {
 }
 
 class RestaurantNearYou extends StatelessWidget {
-  const RestaurantNearYou({
+  RestaurantNearYou({
     super.key,
   });
-
+  List<FoodModel> foodList = [
+    const FoodModel(
+      img: 'assets/hotel/bueret cafe.jpg',
+      deatiledImg: 'assets/detailedImg/combo pack.png',
+      food: 'Combo Burger',
+      shop: "Beirut Cafe",
+      timing: '10 - 15',
+      price: 'Rs 45',
+      rating: '4.5',
+    ),
+    const FoodModel(
+      img: 'assets/hotel/burger king.jpg',
+      deatiledImg: 'assets/detailedImg/english muffin.png',
+      food: 'English Muffin',
+      shop: 'Burger King',
+      timing: '25 - 30',
+      price: 'Rs 225',
+      rating: '4.7',
+    ),
+    const FoodModel(
+      img: 'assets/hotel/faasos.jpg',
+      deatiledImg: 'assets/detailedImg/hawalian.png',
+      food: 'Hawalian Burger',
+      shop: 'Fasos',
+      price: 'Rs 115',
+      timing: '5 - 15',
+      rating: '3.7',
+    ),
+    const FoodModel(
+      img: 'assets/hotel/kfc.jpg',
+      deatiledImg: 'assets/detailedImg/chicken_burger.png',
+      food: 'Snap Burger',
+      shop: 'KFC',
+      price: 'Rs 230',
+      timing: '5 - 10',
+      rating: '4.0',
+    ),
+    const FoodModel(
+      img: 'assets/hotel/mcdonalds.jpg',
+      deatiledImg: 'assets/detailedImg/double_cheeese.png',
+      food: 'Double Cheese Burger',
+      shop: 'MCDonalds',
+      price: 'Rs 100',
+      timing: '10 - 25',
+      rating: '3.5',
+    ),
+    const FoodModel(
+      img: 'assets/hotel/subway.jpg',
+      deatiledImg: 'assets/detailedImg/chicken_burger.png',
+      food: 'Chicken Cheese Burger',
+      shop: 'Subway',
+      price: 'Rs 250',
+      timing: '30 - 45',
+      rating: '4.9',
+    ),
+    const FoodModel(
+      img: 'assets/hotel/taco bell.jpg',
+      deatiledImg: 'assets/detailedImg/hamburger.png',
+      food: 'Hamburger',
+      shop: 'Taco Bell',
+      price: 'Rs 300',
+      timing: '10 - 15',
+      rating: '4.5',
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -531,74 +597,108 @@ class RestaurantNearYou extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           SizedBox(
-            height: 205,
+            height: 225,
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
-              itemCount: 10,
+              itemCount: foodList.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.only(right: 8, top: 8, left: 3),
+                  child: SizedBox(
+                    width: 130,
+                    height: 150,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(
+                              12), // Set the border radius for rounded edges
+                          child: SizedBox(
+                            height: 140,
+                            width: double.infinity, // Set to maximum width
+                            child: Image.asset(
+                              foodList[index].img,
+                              fit: BoxFit
+                                  .cover, // Adjusts the image to cover the width
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const SizedBox(height: 10),
+                                Text(
+                                  foodList[index].shop,
+                                  style: TextStyles.rubik14blackW600,
+                                ),
+                                const SizedBox(height: 5),
+                                Text(
+                                  "${foodList[index].timing} mins",
+                                  style: TextStyles.rubik12bluegreyW500,
+                                ),
+                              ]),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class WhatsOnYourMind extends StatelessWidget {
+  const WhatsOnYourMind({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            children: [
+              Text(
+                "VISHNU, WHAT'S ON YOUR MIND ?",
+                style: TextStyles.rubik12gblackyW500,
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          SizedBox(
+            height: 295, // Adjust the height as needed
+            child: GridView.builder(
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, // 2 rows
+                crossAxisSpacing: 8, // Spacing between columns
+                mainAxisSpacing: 8, // Spacing between rows
+                childAspectRatio: 1 / 1.6, // Aspect ratio to control item size
+              ),
+              itemCount: 10, // Number of items
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.only(
                       right: 8, bottom: 8, top: 8, left: 3),
                   child: InkWell(
-                    onTap: () {
-                      // AppRoutes.navigateToProductScreen(context);
-                    },
-                    child: Card(
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      elevation: 4, // This controls the shadow effect
-                      shadowColor: Colors.grey.withOpacity(0.5),
-                      child: SizedBox(
-                        width: 165,
-                        height: 200,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(
-                                    12), // Set the border radius for rounded edges
-                                child: SizedBox(
-                                  height: 100,
-                                  width:
-                                      double.infinity, // Set to maximum width
-                                  child: Image.asset(
-                                    'assets/common/image-2.jpg',
-                                    fit: BoxFit
-                                        .cover, // Adjusts the image to cover the width
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-                              Text(
-                                "Burger beef anjaz",
-                                style: TextStyles.rubik14blackW600,
-                              ),
-                              const SizedBox(height: 5),
-                              Row(
-                                children: [
-                                  Text(
-                                    'Burger Bos',
-                                    style: TextStyles.rubik12greyW600,
-                                  ),
-                                  const Spacer(),
-                                  Text(
-                                    'Rs 45.0',
-                                    style: TextStyles.rubik14blackW600,
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                      onTap: () {
+                        // AppRoutes.navigateToProductScreen(context);
+                      },
+                      child: Text('data')),
                 );
               },
             ),

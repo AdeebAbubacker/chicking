@@ -4,6 +4,7 @@ class FoodModel {
   final String food;
   final String shop;
   final String price;
+  final String? timing;
   final String rating;
   const FoodModel({
     required this.img,
@@ -11,6 +12,7 @@ class FoodModel {
     required this.food,
     required this.shop,
     required this.price,
+    this.timing = '30 - 35',
     required this.rating,
   });
 }
