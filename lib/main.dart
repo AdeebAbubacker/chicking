@@ -1,11 +1,26 @@
+import 'package:audio_service/audio_service.dart';
+import 'package:auxzon/core/functions/audio_player.dart';
 import 'package:auxzon/screens/intro/intro_screen.dart';
 import 'package:auxzon/testing/testing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+
+late AudioServiceSingleton audioServiceSingleton;
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  ///----------------lock in portrait mode----------------------------------
+  audioServiceSingleton = AudioServiceSingleton();
+  audioServiceSingleton.audioHandler = await AudioService.init(
+    builder: () => AudioPlayerHandler(),
+    config: const AudioServiceConfig(
+      androidNotificationChannelId: 'com.ryanheise.myapp.channel.audio',
+      androidNotificationChannelName: 'Audio playback',
+      androidNotificationOngoing: true,
+    ),
+  );
+
+  // Lock in portrait mode
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
     runApp(const MyApp());
@@ -15,7 +30,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,7 +39,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: GetStartedScreen(),
+      home:   GetStartedScreen(),
     );
   }
 }
+

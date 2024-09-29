@@ -2,6 +2,7 @@ import 'package:auxzon/core/constants/text_styles.dart';
 import 'package:auxzon/core/model/food_model.dart';
 import 'package:auxzon/core/routes/app_routes.dart';
 import 'package:auxzon/testing/testing.dart';
+import 'package:auxzon/widgets/search_delegate.dart';
 import 'package:flutter/material.dart';
 
 class Section3 extends StatelessWidget {

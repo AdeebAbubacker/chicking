@@ -1,3 +1,6 @@
+import 'package:auxzon/core/functions/audio_player.dart';
+import 'package:auxzon/main.dart';
+import 'package:auxzon/testing/testing.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailScreen extends StatefulWidget {
@@ -7,6 +10,16 @@ class ProductDetailScreen extends StatefulWidget {
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   int currentvalue = 0;
+  void _playAudio(String assetPath) async {
+    try {
+      // Cast the audioHandler to AudioPlayerHandler to access the custom method
+      (audioServiceSingleton.audioHandler as AudioPlayerHandler)
+          .playAudioFromAsset(assetPath);
+    } catch (e) {
+      print("Error playing audio: $e");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,6 +100,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     onPressed: () {
                                       setState(() {
                                         if (currentvalue > 0) {
+                                          _playAudio('assets/counter.mp3');
                                           currentvalue -= 1;
                                         }
                                       });
@@ -106,11 +120,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 IconButton(
                                     onPressed: () {
                                       setState(() {
-                                        setState(() {
-                                          if (currentvalue < 99) {
-                                            currentvalue += 1;
-                                          }
-                                        });
+                                  _playAudio('assets/counter.mp3');
+                                        if (currentvalue < 99) {
+                                          currentvalue += 1;
+                                        }
                                       });
                                     },
                                     icon: const Icon(
@@ -179,7 +192,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           width: double.infinity,
                           height: 49,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                            _playAudio('assets/added to cart.mp3');
+                            },
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30),
@@ -219,4 +234,3 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     );
   }
 }
-
