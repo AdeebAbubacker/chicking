@@ -1,5 +1,6 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:auxzon/core/functions/audio_player.dart';
+import 'package:auxzon/screens/home/layout/home_layout.dart';
 import 'package:auxzon/screens/intro/intro_screen.dart';
 import 'package:auxzon/screens/product/product_screen.dart';
 import 'package:auxzon/testing/testing.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ProductDetailScreen(),
+      home: const HomeLayout(),
     );
   }
 }

@@ -32,7 +32,7 @@ class Section3 extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const SizedBox(height: 10),
+                              const SizedBox(height: 50),
                               Text(
                                 "Location",
                                 style: TextStyles.rubik16WhiteW500,
@@ -65,7 +65,30 @@ class Section3 extends StatelessWidget {
                                   child: Text(
                                     "Order Now",
                                     style: TextStyles.rubik14WredeW600,
-                                  ))
+                                  )),
+                              const SizedBox(height: 10),
+                              Row(
+                                children: [
+                                  Container(
+                                    width: 50,
+                                    height: 3,
+                                    decoration: const BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(12)),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 30,
+                                    height: 3,
+                                    decoration: const BoxDecoration(
+                                      color: Color.fromARGB(104, 255, 255, 255),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(12)),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ],
                           ),
                         ),
@@ -75,8 +98,7 @@ class Section3 extends StatelessWidget {
                             const Spacer(),
                             Image.asset(
                               'assets/image-8.png',
-                              width: MediaQuery.of(context).size.width *
-                                  0.45, // 43% of screen width for the image
+                              width: MediaQuery.of(context).size.width * 0.45,
                               height: 290,
                             ),
                           ],
@@ -86,16 +108,14 @@ class Section3 extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  bottom: 25, // Pushes the search bar partially outside
+                  bottom: 25,
                   left: 16,
                   right: 16,
                   child: GestureDetector(
                     onTap: () {
-                      // Trigger search when tapped
                       showSearch(
                         context: context,
-                        delegate:
-                            ProductSearchDelegate(), // Your custom search delegate
+                        delegate: ProductSearchDelegate(),
                       );
                     },
                     child: Container(
@@ -296,50 +316,50 @@ class TopRatedFood extends StatelessWidget {
   List<FoodModel> foodList = [
     const FoodModel(
       img: 'assets/image-1.jpg',
-      food: 'Burger beef anjaz',
-      shop: 'Burger Bos',
+      food: 'Combo Burger',
+      shop: "McDonald's",
       price: 'Rs 45',
       rating: '4.5',
     ),
     const FoodModel(
       img: 'assets/image-2.jpg',
-      food: 'Burger beef anjaz',
-      shop: 'Burger Bos',
+      food: 'English Muffin',
+      shop: 'Burger King',
       price: 'Rs 225',
       rating: '4.7',
     ),
     const FoodModel(
       img: 'assets/image-3.jpg',
-      food: 'Burger beef anjaz',
-      shop: 'Burger Bos',
+      food: 'Hawalian Burger',
+      shop: 'Subway',
       price: 'Rs 115',
       rating: '3.7',
     ),
     const FoodModel(
       img: 'assets/image-4.jpg',
-      food: 'Burger beef anjaz',
-      shop: 'Burger Bos',
+      food: 'Snap Burger',
+      shop: 'KFC',
       price: 'Rs 230',
       rating: '4.0',
     ),
     const FoodModel(
       img: 'assets/image-5.jpg',
-      food: 'Burger beef anjaz',
-      shop: 'Burger Bos',
+      food: 'Double Cheese Burger',
+      shop: 'Taco Bell',
       price: 'Rs 100',
       rating: '3.5',
     ),
     const FoodModel(
       img: 'assets/image-6.jpg',
-      food: 'Burger beef anjaz',
-      shop: 'Burger Bos',
+      food: 'Chicken Cheese Burger',
+      shop: 'Faasos',
       price: 'Rs 250',
       rating: '4.9',
     ),
     const FoodModel(
       img: 'assets/image-7.jpg',
-      food: 'Burger beef anjaz',
-      shop: 'Burger Bos',
+      food: 'Hamburger',
+      shop: 'Sankalp',
       price: 'Rs 300',
       rating: '4.5',
     ),
@@ -433,7 +453,9 @@ class TopRatedFood extends StatelessWidget {
                                   )),
                               const SizedBox(height: 10),
                               Text(
-                                foodList[index].food,
+                                foodList[index].food.length > 14
+                                    ? '${foodList[index].food.substring(0, 14)}...'
+                                    : foodList[index].food,
                                 style: TextStyles.rubik14blackW600,
                               ),
                               const SizedBox(height: 5),
