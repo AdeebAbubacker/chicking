@@ -29,8 +29,7 @@ class Section3 extends StatelessWidget {
                     child: Row(
                       children: [
                         SizedBox(
-                          width: MediaQuery.of(context).size.width *
-                              0.5, // 40% of screen width
+                          width: MediaQuery.of(context).size.width * 0.5,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -183,8 +182,7 @@ class Section3 extends StatelessWidget {
                             height: 25,
                             child: Image.asset(
                               'assets/icons/rice.png',
-                              fit: BoxFit
-                                  .contain, // Ensure the image fits within the 20x20 box
+                              fit: BoxFit.contain,
                               color: const Color.fromARGB(255, 131, 131, 131),
                             ),
                           ),
@@ -224,9 +222,7 @@ class Section3 extends StatelessWidget {
                             height: 25,
                             child: Image.asset(
                               'assets/icons/snacks.png',
-                              fit: BoxFit
-                                  .contain, // Ensure the image fits within the 20x20 box
-
+                              fit: BoxFit.contain,
                               color: const Color.fromARGB(255, 131, 131, 131),
                             ),
                           ),
@@ -266,8 +262,7 @@ class Section3 extends StatelessWidget {
                             height: 25,
                             child: Image.asset(
                               'assets/icons/juice.png',
-                              fit: BoxFit
-                                  .contain, // Ensure the image fits within the 20x20 box
+                              fit: BoxFit.contain,
                               color: const Color.fromARGB(255, 131, 131, 131),
                             ),
                           ),
@@ -307,8 +302,7 @@ class Section3 extends StatelessWidget {
                             height: 25,
                             child: Image.asset(
                               'assets/icons/more.png',
-                              fit: BoxFit
-                                  .contain, // Ensure the image fits within the 20x20 box
+                              fit: BoxFit.contain,
                               color: const Color.fromARGB(255, 131, 131, 131),
                             ),
                           ),
@@ -330,7 +324,8 @@ class Section3 extends StatelessWidget {
           const SizedBox(height: 30),
           RestaurantNearYou(),
           const SizedBox(height: 30),
-          WhatsOnYourMind()
+          WhatsOnYourMind(),
+          const SizedBox(height: 70),
         ],
       ),
     );
@@ -348,7 +343,9 @@ class TopRatedFood extends StatelessWidget {
       deatiledImg: 'assets/detailedImg/combo pack.png',
       food: 'Combo Burger',
       shop: "McDonald's",
-      price: 'Rs 45',
+      details:
+          "This beef burger uses 100% quality beef and is packed with sliced tomatoes, cucumbers, and onions. Fresh vegetables add crunch, making it a wholesome meal. Available at McDonald's, it's a perfect combo for burger lovers.",
+      price: '45',
       rating: '4.5',
     ),
     const FoodModel(
@@ -356,23 +353,29 @@ class TopRatedFood extends StatelessWidget {
       deatiledImg: 'assets/detailedImg/english muffin.png',
       food: 'English Muffin',
       shop: 'Burger King',
-      price: 'Rs 225',
+      details:
+          "The English Muffin from Burger King features a soft, toasted muffin with a savory patty inside. It's layered with fresh lettuce, tomatoes, and onions, making it a light yet satisfying snack. A great choice for a quick, delicious bite.",
+      price: '225',
       rating: '4.7',
     ),
     const FoodModel(
       img: 'assets/common/image-3.jpg',
       deatiledImg: 'assets/detailedImg/hawalian.png',
       food: 'Hawalian Burger',
+      details:
+          "Subway’s Hawalian Burger brings a tropical twist to the classic burger with grilled pineapple and tangy sauce. The combination of sweet and savory flavors, along with fresh veggies, makes this burger a unique experience.",
       shop: 'Subway',
-      price: 'Rs 115',
+      price: '115',
       rating: '3.7',
     ),
     const FoodModel(
       img: 'assets/common/image-4.jpg',
       deatiledImg: 'assets/detailedImg/chicken_burger.png',
       food: 'Snap Burger',
+      details:
+          "The Snap Burger at KFC boasts a crispy chicken patty wrapped in soft buns, topped with lettuce, onions, and mayonnaise. It’s a simple yet flavorful option for anyone looking for a quick and satisfying meal.",
       shop: 'KFC',
-      price: 'Rs 230',
+      price: '230',
       rating: '4.0',
     ),
     const FoodModel(
@@ -380,7 +383,9 @@ class TopRatedFood extends StatelessWidget {
       deatiledImg: 'assets/detailedImg/double_cheeese.png',
       food: 'Double Cheese Burger',
       shop: 'Taco Bell',
-      price: 'Rs 100',
+      details:
+          "Taco Bell's Double Cheese Burger is a cheese lover's dream with two beef patties covered in melted cheese. Fresh lettuce, pickles, and ketchup add the perfect balance of flavors, making it a rich, cheesy delight.",
+      price: '100',
       rating: '3.5',
     ),
     const FoodModel(
@@ -388,15 +393,19 @@ class TopRatedFood extends StatelessWidget {
       deatiledImg: 'assets/detailedImg/chicken_burger.png',
       food: 'Chicken Cheese Burger',
       shop: 'Faasos',
-      price: 'Rs 250',
+      details:
+          "Faasos offethe Chicken Cheese Burger, which features a juicy chicken patty topped with melted cheddar cheese. Crisp vegetables and tangy sauces enhance the flavors, creating a perfect cheesy and savory bite.",
+      price: '250',
       rating: '4.9',
     ),
     const FoodModel(
       img: 'assets/common/image-7.jpg',
       deatiledImg: 'assets/detailedImg/hamburger.png',
       food: 'Hamburger',
+      details:
+          "The Hamburger from Sankalp is a classic with a beef patty topped with crispy lettuce and onions. Served in soft sesame buns, it’s completed with ketchup and mustard for a timeless burger experience.",
       shop: 'Sankalp',
-      price: 'Rs 300',
+      price: '300',
       rating: '4.5',
     ),
   ];
@@ -425,108 +434,8 @@ class TopRatedFood extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.only(
                       right: 8, bottom: 8, top: 8, left: 3),
-                  child:
-
-                      // InkWell(
-                      //   onTap: () {
-                      //     // AppRoutes.navigateToProductScreen(context);
-                      //     Navigator.push(context, MaterialPageRoute(
-                      //       builder: (context) {
-                      //         return ProductDetailScreen(
-                      //           foodModel: foodList[index],
-                      //         );
-                      //       },
-                      //     ));
-                      //   },
-                      //   child: Card(
-                      //     color: Colors.white,
-                      //     shape: RoundedRectangleBorder(
-                      //       borderRadius: BorderRadius.circular(12),
-                      //     ),
-                      //     elevation: 4, // This controls the shadow effect
-                      //     shadowColor: Colors.grey.withOpacity(0.5),
-                      //     child: SizedBox(
-                      //       width: 165,
-                      //       height: 200,
-                      //       child: Padding(
-                      //         padding: const EdgeInsets.all(8.0),
-                      //         child: Column(
-                      //           crossAxisAlignment: CrossAxisAlignment.start,
-                      //           mainAxisSize: MainAxisSize.min,
-                      //           children: [
-                      //             ClipRRect(
-                      //                 borderRadius: BorderRadius.circular(12),
-                      //                 child: Stack(
-                      //                   children: [
-                      //                     SizedBox(
-                      //                       height: 100,
-                      //                       width: double.infinity,
-                      //                       child: Image.asset(
-                      //                         foodList[index].img,
-                      //                         fit: BoxFit.cover,
-                      //                       ),
-                      //                     ),
-                      //                     Positioned(
-                      //                       top: 10,
-                      //                       left: 10,
-                      //                       child: Container(
-                      //                         decoration: BoxDecoration(
-                      //                             color: const Color.fromARGB(
-                      //                                 255, 235, 235, 235),
-                      //                             borderRadius:
-                      //                                 BorderRadius.circular(9)),
-                      //                         child: Padding(
-                      //                           padding: const EdgeInsets.symmetric(
-                      //                               horizontal: 5),
-                      //                           child: Row(
-                      //                             children: [
-                      //                               Icon(
-                      //                                 Icons.star,
-                      //                                 color: Colors.amber[700],
-                      //                               ),
-                      //                               Text(
-                      //                                 '(${foodList[index].rating})',
-                      //                                 style: TextStyles
-                      //                                     .rubik12bluegreyW600,
-                      //                               )
-                      //                             ],
-                      //                           ),
-                      //                         ),
-                      //                       ),
-                      //                     ),
-                      //                   ],
-                      //                 )),
-                      //             const SizedBox(height: 10),
-                      //             Text(
-                      //               foodList[index].food.length > 14
-                      //                   ? '${foodList[index].food.substring(0, 14)}...'
-                      //                   : foodList[index].food,
-                      //               style: TextStyles.rubik14blackW600,
-                      //             ),
-                      //             const SizedBox(height: 5),
-                      //             Row(
-                      //               children: [
-                      //                 Text(
-                      //                   foodList[index].shop,
-                      //                   style: TextStyles.rubik12greyW600,
-                      //                 ),
-                      //                 const Spacer(),
-                      //                 Text(
-                      //                   foodList[index].price,
-                      //                   style: TextStyles.rubik14blackW600,
-                      //                 )
-                      //               ],
-                      //             ),
-                      //           ],
-                      //         ),
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
-
-                      Material(
-                    color: Colors
-                        .transparent, // Set the color to transparent so the card's color is visible
+                  child: Material(
+                    color: Colors.transparent,
                     child: InkWell(
                       onTap: () {
                         Navigator.push(
@@ -540,16 +449,14 @@ class TopRatedFood extends StatelessWidget {
                           ),
                         );
                       },
-                      borderRadius: BorderRadius.circular(
-                          12), // Add border radius to match the card
-                      splashColor: Colors.grey
-                          .withOpacity(0.3), // Customize the splash color
+                      borderRadius: BorderRadius.circular(12),
+                      splashColor: Colors.grey.withOpacity(0.3),
                       child: Card(
                         color: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        elevation: 4, // This controls the shadow effect
+                        elevation: 4,
                         shadowColor: Colors.grey.withOpacity(0.5),
                         child: SizedBox(
                           width: 165,
@@ -620,7 +527,7 @@ class TopRatedFood extends StatelessWidget {
                                     ),
                                     const Spacer(),
                                     Text(
-                                      foodList[index].price,
+                                      '\$ ${foodList[index].price}',
                                       style: TextStyles.rubik14blackW600,
                                     ),
                                   ],
@@ -653,7 +560,7 @@ class RestaurantNearYou extends StatelessWidget {
       food: 'Combo Burger',
       shop: "Beirut Cafe",
       timing: '10 - 15',
-      price: 'Rs 45',
+      price: '45',
       rating: '4.5',
     ),
     const FoodModel(
@@ -662,7 +569,7 @@ class RestaurantNearYou extends StatelessWidget {
       food: 'English Muffin',
       shop: 'Burger King',
       timing: '25 - 30',
-      price: 'Rs 225',
+      price: '225',
       rating: '4.7',
     ),
     const FoodModel(
@@ -670,7 +577,7 @@ class RestaurantNearYou extends StatelessWidget {
       deatiledImg: 'assets/detailedImg/hawalian.png',
       food: 'Hawalian Burger',
       shop: 'Fasos',
-      price: 'Rs 115',
+      price: '115',
       timing: '5 - 15',
       rating: '3.7',
     ),
@@ -679,7 +586,7 @@ class RestaurantNearYou extends StatelessWidget {
       deatiledImg: 'assets/detailedImg/chicken_burger.png',
       food: 'Snap Burger',
       shop: 'KFC',
-      price: 'Rs 230',
+      price: '230',
       timing: '5 - 10',
       rating: '4.0',
     ),
@@ -688,7 +595,7 @@ class RestaurantNearYou extends StatelessWidget {
       deatiledImg: 'assets/detailedImg/double_cheeese.png',
       food: 'Double Cheese Burger',
       shop: 'MCDonalds',
-      price: 'Rs 100',
+      price: '100',
       timing: '10 - 25',
       rating: '3.5',
     ),
@@ -697,7 +604,7 @@ class RestaurantNearYou extends StatelessWidget {
       deatiledImg: 'assets/detailedImg/chicken_burger.png',
       food: 'Chicken Cheese Burger',
       shop: 'Subway',
-      price: 'Rs 250',
+      price: '250',
       timing: '30 - 45',
       rating: '4.9',
     ),
@@ -706,7 +613,7 @@ class RestaurantNearYou extends StatelessWidget {
       deatiledImg: 'assets/detailedImg/hamburger.png',
       food: 'Hamburger',
       shop: 'Taco Bell',
-      price: 'Rs 300',
+      price: '300',
       timing: '10 - 15',
       rating: '4.5',
     ),
@@ -750,15 +657,13 @@ class RestaurantNearYou extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ClipRRect(
-                          borderRadius: BorderRadius.circular(
-                              12), // Set the border radius for rounded edges
+                          borderRadius: BorderRadius.circular(12),
                           child: SizedBox(
                             height: 140,
-                            width: double.infinity, // Set to maximum width
+                            width: double.infinity,
                             child: Image.asset(
                               foodList[index].img,
-                              fit: BoxFit
-                                  .cover, // Adjusts the image to cover the width
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ),

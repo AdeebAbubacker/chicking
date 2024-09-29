@@ -2,13 +2,14 @@ import 'package:auxzon/core/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class GetStartedScreen extends StatelessWidget {
+  const GetStartedScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // Background image - 40% of the screen
           Positioned(
             top: 0,
             left: 0,
@@ -16,22 +17,21 @@ class GetStartedScreen extends StatelessWidget {
             child: ClipPath(
               clipper: WaveClipper(),
               child: Image.asset(
-                'assets/common/image-3.jpg', // Replace with your image path
+                'assets/common/image-3.jpg',
                 fit: BoxFit.cover,
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.5, // 40% height
+                height: MediaQuery.of(context).size.height * 0.5,
               ),
             ),
           ),
-          // Yellow container - 60% of the screen
           Positioned(
-            top: MediaQuery.of(context).size.height * 0.55, // Starts after 40%
+            top: MediaQuery.of(context).size.height * 0.55,
             left: 0,
             right: 0,
-            bottom: 0, // Takes the rest of the screen (60%)
+            bottom: 0,
             child: Container(
               decoration: const BoxDecoration(
-                color: Colors.white, // Yellow background
+                color: Colors.white,
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -67,7 +67,7 @@ class GetStartedScreen extends StatelessWidget {
                           child: Container(
                             width: 8,
                             height: 8,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Colors.grey,
                               shape: BoxShape.circle,
                             ),
@@ -78,7 +78,7 @@ class GetStartedScreen extends StatelessWidget {
                           child: Container(
                             width: 8,
                             height: 8,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Colors.grey,
                               shape: BoxShape.circle,
                             ),
@@ -97,13 +97,12 @@ class GetStartedScreen extends StatelessWidget {
                       ],
                     ),
                     const Spacer(),
-                    // Get Started Button
+
                     SizedBox(
                       width: double.infinity,
                       height: 55,
                       child: ElevatedButton(
                         onPressed: () {
-                          // AppRoutes.navigateToHome(context);
                           navigateToHomeCleared(context);
                         },
                         style: ElevatedButton.styleFrom(
@@ -133,7 +132,6 @@ class GetStartedScreen extends StatelessWidget {
     );
   }
 
-  // Function to build dots for the indicator
   Widget buildDot({required Color color, double? width}) {
     return Container(
       width: width ?? 8,
@@ -151,23 +149,16 @@ class WaveClipper extends CustomClipper<Path> {
   Path getClip(Size size) {
     var path = Path();
 
-    // Start from the bottom-left corner of the widget
-    path.lineTo(0, size.height); // Move to the bottom-left corner
+    path.lineTo(0, size.height);
 
-    // Define the control point and end point for the curve bulging upwards
-    var controlPoint = Offset(
-        size.width / 2, size.height - 100); // Control point above the bottom
-    var endPoint =
-        Offset(size.width, size.height); // End at the bottom-right corner
+    var controlPoint = Offset(size.width / 2, size.height - 100);
+    var endPoint = Offset(size.width, size.height);
 
-    // Create a smooth curve from bottom-left to bottom-right
     path.quadraticBezierTo(
         controlPoint.dx, controlPoint.dy, endPoint.dx, endPoint.dy);
 
-    // Continue drawing straight to the top-right corner
     path.lineTo(size.width, 0);
 
-    // Draw a line back to the bottom-left corner to complete the shape
     path.lineTo(0, 0);
 
     path.close();

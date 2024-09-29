@@ -1,3 +1,4 @@
+import 'package:auxzon/core/constants/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class Section2 extends StatelessWidget {
@@ -6,7 +7,18 @@ class Section2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Image.asset('assets/animated/No Data Available.gif'),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(height: 20),
+          Text(
+            "Favourites Screen",
+            style: TextStyles.rubik20gblackyW500,
+          ),
+          Image.asset('assets/animated/sorry.gif'),
+        ],
+      ),
     );
   }
 }

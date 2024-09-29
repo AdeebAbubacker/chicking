@@ -127,22 +127,22 @@ class ProductSearchDelegate extends SearchDelegate {
   ThemeData appBarTheme(BuildContext context) {
     return ThemeData(
       appBarTheme: const AppBarTheme(
-        color: Colors.white, // Set the appbar background to white
-        iconTheme: IconThemeData(color: Colors.black), // Icons color
+        color: Colors.white, 
+        iconTheme: IconThemeData(color: Colors.black), 
       ),
-      scaffoldBackgroundColor: Colors.white, // Background of the body
+      scaffoldBackgroundColor: Colors.white, 
     );
   }
 
   @override
   List<Widget> buildActions(BuildContext context) {
-    // Action buttons on the app bar (like clear search text)
+
     return [
       IconButton(
         icon: const Icon(Icons.clear),
         onPressed: () {
-          query = ''; // Clear the search field
-          showSuggestions(context); // Show all suggestions again
+          query = ''; 
+          showSuggestions(context);
         },
       ),
     ];
@@ -150,18 +150,18 @@ class ProductSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildLeading(BuildContext context) {
-    // Leading icon (back arrow to exit search)
+
     return IconButton(
       icon: const Icon(Icons.arrow_back),
       onPressed: () {
-        close(context, null); // Close the search
+        close(context, null); 
       },
     );
   }
 
   @override
   Widget buildResults(BuildContext context) {
-    // Filtered search results based on user query
+
     filteredList = foodList
         .where((food) => food.food.toLowerCase().contains(query.toLowerCase()))
         .toList();
@@ -177,7 +177,7 @@ class ProductSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    // Suggestions as the user types based on the query
+
     filteredList = suggestionsList
         .where((food) => food.food.toLowerCase().contains(query.toLowerCase()))
         .toList();
@@ -201,15 +201,15 @@ class ProductSearchDelegate extends SearchDelegate {
           trailing: IconButton(
             icon: const Icon(Icons.close, color: Colors.red),
             onPressed: () {
-              // Remove the item from the original list
+       
               suggestionsList.remove(list[index]);
-              query = ''; // Clear the search query to update suggestions
-              showSuggestions(context); // Refresh suggestions
+              query = ''; 
+              showSuggestions(context); 
             },
           ),
           onTap: () {
-            query = foodList[index].food; // Set the search query
-            showResults(context); // Show the results based on the suggestion
+            query = foodList[index].food; 
+            showResults(context); 
           },
         );
       },

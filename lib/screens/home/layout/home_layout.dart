@@ -32,12 +32,11 @@ class _HomeLayoutState extends State<HomeLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: (_selectedIndex == 0 ||
-              _selectedIndex == 1 ||
-              _selectedIndex == 3 ||
-              _selectedIndex == 4)
+      backgroundColor: (_selectedIndex == 0 || _selectedIndex == 4)
           ? const Color(0XFFFCFCFF)
-          : const Color.fromARGB(255, 247, 247, 247),
+          : (_selectedIndex == 3 || _selectedIndex == 1)
+              ? Colors.white
+              : const Color.fromARGB(255, 247, 247, 247),
       body: _screens[_selectedIndex],
       bottomNavigationBar: Container(
         height: 70.0,

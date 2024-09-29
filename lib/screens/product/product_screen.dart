@@ -4,7 +4,6 @@ import 'package:auxzon/core/constants/text_styles.dart';
 import 'package:auxzon/core/functions/audio_player.dart';
 import 'package:auxzon/core/model/food_model.dart';
 import 'package:auxzon/main.dart';
-import 'package:auxzon/testing/testing.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailScreen extends StatefulWidget {
@@ -21,7 +20,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   int currentvalue = 1;
   void _playAudio(String assetPath) async {
     try {
-      // Cast the audioHandler to AudioPlayerHandler to access the custom method
       (audioServiceSingleton.audioHandler as AudioPlayerHandler)
           .playAudioFromAsset(assetPath);
     } catch (e) {
@@ -30,11 +28,11 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   }
 
   bool _moveText = false;
-  double _rotationAngle = 0.0; // Initial rotation angle
+  double _rotationAngle = 0.0;
 
   @override
   Widget build(BuildContext context) {
-    final double imageHeight = 200; // Image height
+    final double imageHeight = 200;
     final double imageWidth = MediaQuery.of(context).size.width * 0.8;
     return Scaffold(
       backgroundColor: const Color(0XFFEEEEEE),
@@ -49,16 +47,13 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   child: Row(
                     children: [
                       Material(
-                        color: Colors
-                            .transparent, // Make the Material widget transparent so the container's color shows
+                        color: Colors.transparent,
                         child: InkWell(
                           onTap: () {
                             Navigator.of(context).pop();
                           },
-                          borderRadius: BorderRadius.circular(
-                              8), // Match the borderRadius of the container
-                          splashColor: Colors.grey
-                              .withOpacity(0.3), // Customize the splash color
+                          borderRadius: BorderRadius.circular(8),
+                          splashColor: Colors.grey.withOpacity(0.3),
                           child: Container(
                             width: 40,
                             height: 40,
@@ -93,8 +88,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     ],
                   ),
                 ),
-
-                // Product details section
                 const Spacer(),
                 Container(
                   width: double.infinity,
@@ -112,8 +105,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                            height: MediaQuery.of(context).size.height *
-                                0.15), // 15% of screen height
+                            height: MediaQuery.of(context).size.height * 0.15),
                         Center(
                           child: Container(
                             decoration: BoxDecoration(
@@ -166,8 +158,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           ),
                         ),
                         SizedBox(
-                            height: MediaQuery.of(context).size.height *
-                                0.05), // 5% of screen height
+                            height: MediaQuery.of(context).size.height * 0.05),
                         Row(
                           children: [
                             Column(
@@ -189,10 +180,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               text: TextSpan(
                                 children: [
                                   TextSpan(
-                                      text: '\$', // Red currency symbol
+                                      text: '\$',
                                       style: TextStyles.rubik20red700),
                                   TextSpan(
-                                      text: ' 6.89', // Default amount color
+                                      text: ' ${widget.foodModel?.price}',
                                       style: TextStyles.rubik20black700),
                                 ],
                               ),
@@ -233,9 +224,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         ),
                         SizedBox(
                             height: MediaQuery.of(context).size.height * 0.02),
-                        const ProductDescriptionWidget(
-                          dynamicText:
-                              'This beef burger uses 100% quality beef with sliced tomatoes, cucumbers, vegetables and onions.',
+                        ProductDescriptionWidget(
+                          dynamicText: '${widget.foodModel?.details}',
                         ),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.05,
@@ -309,9 +299,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               left: _moveText ? null : 0,
               top: _moveText
                   ? 16
-                  : (MediaQuery.of(context).size.height * 0.5 -
-                      imageHeight -
-                      38),
+                  : (MediaQuery.of(context).size.height * 0.5 - imageHeight),
               child: AnimatedRotation(
                 turns: _rotationAngle,
                 duration: const Duration(seconds: 4),
@@ -324,7 +312,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     height: _moveText ? 50 : imageHeight,
                     child: Image.asset(
                       widget.foodModel!.deatiledImg,
-                      fit: BoxFit.cover,
                       height: _moveText ? 50 : imageHeight,
                       width: _moveText ? 50 : imageWidth,
                     ),
@@ -366,23 +353,19 @@ class ProductDescriptionWidget extends StatelessWidget {
         children: [
           TextSpan(
             text: truncateWithReadMore(
-              dynamicText, // Replace with your dynamic text variable
+              dynamicText,
               70,
             ),
-            style: TextStyles.nunito14greyW600, // Normal text style
+            style: TextStyles.nunito14greyW600,
           ),
-          if (dynamicText.length >
-              40) // Show "Read More" only if text exceeds 120 characters
+          if (dynamicText.length > 40)
             TextSpan(
               text: 'Read More',
               style: TextStyle(
-                fontSize:
-                    TextStyles.nunito14greyW600.fontSize, // Match the font size
-                fontWeight:
-                    TextStyles.nunito14greyW600.fontWeight, // Match font weight
-                fontFamily:
-                    TextStyles.nunito14greyW600.fontFamily, // Match font family
-                color: Colors.red, // Red color for "Read More"
+                fontSize: TextStyles.nunito14greyW600.fontSize,
+                fontWeight: TextStyles.nunito14greyW600.fontWeight,
+                fontFamily: TextStyles.nunito14greyW600.fontFamily,
+                color: Colors.red,
               ),
             ),
         ],
@@ -405,7 +388,6 @@ class CartSuccesspopup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Close the dialog after 3 seconds
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pop();
     });

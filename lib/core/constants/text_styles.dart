@@ -105,4 +105,9 @@ class TextStyles {
     fontWeight: FontWeight.w500,
     color: Colors.black,
   );
+  static final TextStyle rubik20gblackyW500 = rubik.copyWith(
+    fontSize: 20,
+    fontWeight: FontWeight.w800,
+    color: Colors.black,
+  );
 }
