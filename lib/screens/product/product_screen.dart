@@ -1,16 +1,22 @@
 import 'package:auxzon/core/constants/text_styles.dart';
 import 'package:auxzon/core/functions/audio_player.dart';
+import 'package:auxzon/core/model/food_model.dart';
 import 'package:auxzon/main.dart';
 import 'package:auxzon/testing/testing.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailScreen extends StatefulWidget {
+  final FoodModel? foodModel;
+  const ProductDetailScreen({
+    super.key,
+    this.foodModel,
+  });
   @override
   State<ProductDetailScreen> createState() => _ProductDetailScreenState();
 }
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
-  int currentvalue = 0;
+  int currentvalue = 1;
   void _playAudio(String assetPath) async {
     try {
       // Cast the audioHandler to AudioPlayerHandler to access the custom method
@@ -102,8 +108,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 IconButton(
                                   onPressed: () {
                                     setState(() {
-                                      if (currentvalue > 0) {
-                                        _playAudio('assets/counter.mp3');
+                                      if (currentvalue > 1) {
+                                        _playAudio('assets/audio/counter.mp3');
                                         currentvalue -= 1;
                                       }
                                     });
@@ -124,7 +130,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 IconButton(
                                   onPressed: () {
                                     setState(() {
-                                      _playAudio('assets/counter.mp3');
+                                      _playAudio('assets/audio/counter.mp3');
                                       if (currentvalue < 99) {
                                         currentvalue += 1;
                                       }
@@ -149,11 +155,11 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Beef Burger',
+                                  '${widget.foodModel?.food}',
                                   style: TextStyles.rubik16blackW700,
                                 ),
                                 Text(
-                                  'Cheesy Mozarella',
+                                  '${widget.foodModel?.shop}',
                                   style: TextStyles.rubik12bluegreyW500,
                                 ),
                               ],
@@ -180,7 +186,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             const Icon(Icons.star, color: Colors.yellow),
                             const SizedBox(width: 2),
                             Text(
-                              '4.8',
+                              '${widget.foodModel?.rating}',
                               style: TextStyles.rubik14bluegreyW500,
                             ),
                             const SizedBox(width: 10),
@@ -220,7 +226,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               bottom: MediaQuery.of(context).size.height * 0.5,
               child: Center(
                 child: Image.asset(
-                  'assets/image-8.png',
+                  widget.foodModel!.deatiledImg,
                   height: 200,
                 ),
               ),
@@ -236,7 +242,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   height: 49,
                   child: ElevatedButton(
                     onPressed: () {
-                      _playAudio('assets/added to cart.mp3');
+                      _playAudio('assets/audio/added to cart.mp3');
                     },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(

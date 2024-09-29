@@ -1,6 +1,7 @@
 import 'package:auxzon/core/constants/text_styles.dart';
 import 'package:auxzon/core/model/food_model.dart';
 import 'package:auxzon/core/routes/app_routes.dart';
+import 'package:auxzon/screens/product/product_screen.dart';
 import 'package:auxzon/testing/testing.dart';
 import 'package:auxzon/widgets/search_delegate.dart';
 import 'package:flutter/material.dart';
@@ -97,7 +98,7 @@ class Section3 extends StatelessWidget {
                           children: [
                             const Spacer(),
                             Image.asset(
-                              'assets/image-8.png',
+                              'assets/common/image-8.png',
                               width: MediaQuery.of(context).size.width * 0.45,
                               height: 290,
                             ),
@@ -315,49 +316,56 @@ class TopRatedFood extends StatelessWidget {
 
   List<FoodModel> foodList = [
     const FoodModel(
-      img: 'assets/image-1.jpg',
+      img: 'assets/common/image-1.jpg',
+      deatiledImg: 'assets/detailedImg/combo pack.png',
       food: 'Combo Burger',
       shop: "McDonald's",
       price: 'Rs 45',
       rating: '4.5',
     ),
     const FoodModel(
-      img: 'assets/image-2.jpg',
+      img: 'assets/common/image-2.jpg',
+      deatiledImg: 'assets/detailedImg/english muffin.png',
       food: 'English Muffin',
       shop: 'Burger King',
       price: 'Rs 225',
       rating: '4.7',
     ),
     const FoodModel(
-      img: 'assets/image-3.jpg',
+      img: 'assets/common/image-3.jpg',
+      deatiledImg: 'assets/detailedImg/hawalian.png',
       food: 'Hawalian Burger',
       shop: 'Subway',
       price: 'Rs 115',
       rating: '3.7',
     ),
     const FoodModel(
-      img: 'assets/image-4.jpg',
+      img: 'assets/common/image-4.jpg',
+      deatiledImg: 'assets/detailedImg/chicken_burger.png',
       food: 'Snap Burger',
       shop: 'KFC',
       price: 'Rs 230',
       rating: '4.0',
     ),
     const FoodModel(
-      img: 'assets/image-5.jpg',
+      img: 'assets/common/image-5.jpg',
+      deatiledImg: 'assets/detailedImg/double_cheeese.png',
       food: 'Double Cheese Burger',
       shop: 'Taco Bell',
       price: 'Rs 100',
       rating: '3.5',
     ),
     const FoodModel(
-      img: 'assets/image-6.jpg',
+      img: 'assets/common/image-6.jpg',
+      deatiledImg: 'assets/detailedImg/chicken_burger.png',
       food: 'Chicken Cheese Burger',
       shop: 'Faasos',
       price: 'Rs 250',
       rating: '4.9',
     ),
     const FoodModel(
-      img: 'assets/image-7.jpg',
+      img: 'assets/common/image-7.jpg',
+      deatiledImg: 'assets/detailedImg/hamburger.png',
       food: 'Hamburger',
       shop: 'Sankalp',
       price: 'Rs 300',
@@ -391,7 +399,14 @@ class TopRatedFood extends StatelessWidget {
                       right: 8, bottom: 8, top: 8, left: 3),
                   child: InkWell(
                     onTap: () {
-                      AppRoutes.navigateToProductScreen(context);
+                      // AppRoutes.navigateToProductScreen(context);
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return ProductDetailScreen(
+                            foodModel: foodList[index],
+                          );
+                        },
+                      ));
                     },
                     child: Card(
                       color: Colors.white,
@@ -528,7 +543,7 @@ class RestaurantNearYou extends StatelessWidget {
                       right: 8, bottom: 8, top: 8, left: 3),
                   child: InkWell(
                     onTap: () {
-                      AppRoutes.navigateToProductScreen(context);
+                      // AppRoutes.navigateToProductScreen(context);
                     },
                     child: Card(
                       color: Colors.white,
@@ -553,7 +568,7 @@ class RestaurantNearYou extends StatelessWidget {
                                   width:
                                       double.infinity, // Set to maximum width
                                   child: Image.asset(
-                                    'assets/image-2.jpg',
+                                    'assets/common/image-2.jpg',
                                     fit: BoxFit
                                         .cover, // Adjusts the image to cover the width
                                   ),

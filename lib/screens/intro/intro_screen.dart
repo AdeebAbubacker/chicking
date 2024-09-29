@@ -16,7 +16,7 @@ class GetStartedScreen extends StatelessWidget {
             child: ClipPath(
               clipper: WaveClipper(),
               child: Image.asset(
-                'assets/image-3.jpg', // Replace with your image path
+                'assets/common/image-3.jpg', // Replace with your image path
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.5, // 40% height
@@ -103,7 +103,8 @@ class GetStartedScreen extends StatelessWidget {
                       height: 55,
                       child: ElevatedButton(
                         onPressed: () {
-                          AppRoutes.navigateToHome(context);
+                          // AppRoutes.navigateToHome(context);
+                          navigateToHomeCleared(context);
                         },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(

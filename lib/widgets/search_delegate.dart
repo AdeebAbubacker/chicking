@@ -7,6 +7,7 @@ class ProductSearchDelegate extends SearchDelegate {
   final List<FoodModel> foodList = [
     const FoodModel(
       img: 'assets/image-1.jpg',
+      deatiledImg: 'assets/image-1.jpg',
       food: 'Combo Burger',
       shop: "McDonald's",
       price: 'Rs 45',
@@ -14,6 +15,7 @@ class ProductSearchDelegate extends SearchDelegate {
     ),
     const FoodModel(
       img: 'assets/image-2.jpg',
+      deatiledImg: 'assets/image-1.jpg',
       food: 'English Muffin',
       shop: 'Burger King',
       price: 'Rs 225',
@@ -21,6 +23,7 @@ class ProductSearchDelegate extends SearchDelegate {
     ),
     const FoodModel(
       img: 'assets/image-3.jpg',
+      deatiledImg: 'assets/image-1.jpg',
       food: 'Hawalian Burger',
       shop: 'Subway',
       price: 'Rs 115',
@@ -28,6 +31,7 @@ class ProductSearchDelegate extends SearchDelegate {
     ),
     const FoodModel(
       img: 'assets/image-4.jpg',
+      deatiledImg: 'assets/image-1.jpg',
       food: 'Snap Burger',
       shop: 'KFC',
       price: 'Rs 230',
@@ -35,6 +39,7 @@ class ProductSearchDelegate extends SearchDelegate {
     ),
     const FoodModel(
       img: 'assets/image-5.jpg',
+      deatiledImg: 'assets/image-1.jpg',
       food: 'Double Cheese Burger',
       shop: 'Taco Bell',
       price: 'Rs 100',
@@ -42,6 +47,7 @@ class ProductSearchDelegate extends SearchDelegate {
     ),
     const FoodModel(
       img: 'assets/image-6.jpg',
+      deatiledImg: 'assets/image-1.jpg',
       food: 'Chicken Cheese Burger',
       shop: 'Faasos',
       price: 'Rs 250',
@@ -49,6 +55,7 @@ class ProductSearchDelegate extends SearchDelegate {
     ),
     const FoodModel(
       img: 'assets/image-7.jpg',
+      deatiledImg: 'assets/image-1.jpg',
       food: 'Hamburger',
       shop: 'Sankalp',
       price: 'Rs 300',
@@ -57,9 +64,10 @@ class ProductSearchDelegate extends SearchDelegate {
   ];
 
   List<FoodModel> filteredList = [];
-    final List<FoodModel> suggestionsList = [
-  const FoodModel(
+  final List<FoodModel> suggestionsList = [
+    const FoodModel(
       img: 'assets/image-1.jpg',
+      deatiledImg: 'assets/image-1.jpg',
       food: 'Combo Burger',
       shop: "McDonald's",
       price: 'Rs 45',
@@ -67,6 +75,7 @@ class ProductSearchDelegate extends SearchDelegate {
     ),
     const FoodModel(
       img: 'assets/image-2.jpg',
+      deatiledImg: 'assets/image-1.jpg',
       food: 'English Muffin',
       shop: 'Burger King',
       price: 'Rs 225',
@@ -74,6 +83,7 @@ class ProductSearchDelegate extends SearchDelegate {
     ),
     const FoodModel(
       img: 'assets/image-3.jpg',
+      deatiledImg: 'assets/image-1.jpg',
       food: 'Hawalian Burger',
       shop: 'Subway',
       price: 'Rs 115',
@@ -81,6 +91,7 @@ class ProductSearchDelegate extends SearchDelegate {
     ),
     const FoodModel(
       img: 'assets/image-4.jpg',
+      deatiledImg: 'assets/image-1.jpg',
       food: 'Snap Burger',
       shop: 'KFC',
       price: 'Rs 230',
@@ -88,6 +99,7 @@ class ProductSearchDelegate extends SearchDelegate {
     ),
     const FoodModel(
       img: 'assets/image-5.jpg',
+      deatiledImg: 'assets/image-1.jpg',
       food: 'Double Cheese Burger',
       shop: 'Taco Bell',
       price: 'Rs 100',
@@ -95,6 +107,7 @@ class ProductSearchDelegate extends SearchDelegate {
     ),
     const FoodModel(
       img: 'assets/image-6.jpg',
+      deatiledImg: 'assets/image-1.jpg',
       food: 'Chicken Cheese Burger',
       shop: 'Faasos',
       price: 'Rs 250',
@@ -102,13 +115,13 @@ class ProductSearchDelegate extends SearchDelegate {
     ),
     const FoodModel(
       img: 'assets/image-7.jpg',
+      deatiledImg: 'assets/image-1.jpg',
       food: 'Hamburger',
       shop: 'Sankalp',
       price: 'Rs 300',
       rating: '4.5',
     ),
   ];
-
 
   @override
   ThemeData appBarTheme(BuildContext context) {

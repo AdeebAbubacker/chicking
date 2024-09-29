@@ -40,7 +40,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeLayout(),
+      // home: const HomeLayout(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => GetStartedScreen(),
+        '/home': (context) => const HomeLayout(),
+        '/productDetails': (context) => ProductDetailScreen(),
+      },
     );
   }
 }
