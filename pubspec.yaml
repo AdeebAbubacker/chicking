@@ -71,6 +71,7 @@ flutter:
     - assets/logo/
     - assets/mind categories/
     - assets/animated/
+    - assets/icons/
 flutter_launcher_icons:
   android: true
   ios: true

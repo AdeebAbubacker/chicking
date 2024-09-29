@@ -48,18 +48,23 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Row(
                     children: [
-                      Container(
-                        width: 40,
-                        height: 40,
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(8),
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Container(
+                          width: 40,
+                          height: 40,
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(8),
+                            ),
                           ),
-                        ),
-                        child: const Icon(
-                          Icons.arrow_back_ios_new,
-                          color: Color.fromARGB(255, 205, 83, 109),
+                          child: const Icon(
+                            Icons.arrow_back_ios_new,
+                            color: Color.fromARGB(255, 205, 83, 109),
+                          ),
                         ),
                       ),
                       const Spacer(),
