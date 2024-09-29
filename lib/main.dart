@@ -1,5 +1,6 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:auxzon/core/functions/audio_player.dart';
+import 'package:auxzon/core/model/food_model.dart';
 import 'package:auxzon/screens/home/layout/home_layout.dart';
 import 'package:auxzon/screens/intro/intro_screen.dart';
 import 'package:auxzon/screens/product/product_screen.dart';
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => GetStartedScreen(),
         '/home': (context) => const HomeLayout(),
-        '/productDetails': (context) => ProductDetailScreen(),
+        '/productDetails': (context) => const ProductDetailScreen(),
       },
     );
   }
