@@ -36,22 +36,6 @@ A new Flutter project.
 
 ---
 
-## 🌟 Features
-
-### 👨‍🏫 For Teachers
-
-- 📝 **Question Bank**: View and manage Question Bank , including options.
-- 📄 **Assesments**: Create, assign, and assesments with ease.
-- 📢 **Announcements**: Post important updates and keep students informed.
-- 📅 **Assements Tracking**: Track assement, regarding students attended and not attended.
-
-### 👩‍🎓 For Students
-
-- 👤 **Profile**: View personal information, attendance records, and grades.
-- 📥 **Assesments**: Submit assesments and track grades and feedback.
-- 🛎️ **Announcements**: Stay updated with the latest information from teachers.
-- 📊 **Events View**: Get Event details.
-
 ## 🛠️ Tech Stack
 
 | Technology    | Description                                    |
