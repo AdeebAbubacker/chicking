@@ -57,7 +57,7 @@ A new Flutter project.
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/AdeebAbubacker/pupiltube
-   cd pupiltube
+   git clone https://github.com/AdeebAbubacker/chicking
+   cd chicking
 
    ```
