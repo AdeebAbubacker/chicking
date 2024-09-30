@@ -4,7 +4,7 @@ A new Flutter project.
 
 ## Getting Started
 
-# 📚 Pupil Tube - Mobile App
+# 📚 Burger App - Mobile App
 
 <div align="center">
   <img src="https://github.com/AdeebAbubacker/pupiltube/blob/main/assets/icon/pupil.png" alt="SchoolConnect Logo" width="200"/>
