@@ -42,7 +42,7 @@ A new Flutter project.
 | ------------- | ---------------------------------------------- |
 | **Flutter**   | Frontend framework for cross-platform UI.      |
 | **Firebase**  | Backend services including Authentication.     |
-| **Firestore** | Database for storing student and teacher data. |
+
 
 ## 🚀 Getting Started
 
