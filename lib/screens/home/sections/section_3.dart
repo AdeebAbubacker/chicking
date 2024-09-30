@@ -3,7 +3,6 @@ import 'package:auxzon/core/model/category_model.dart';
 import 'package:auxzon/core/model/food_model.dart';
 import 'package:auxzon/core/routes/app_routes.dart';
 import 'package:auxzon/screens/product/product_screen.dart';
-import 'package:auxzon/testing/testing.dart';
 import 'package:auxzon/widgets/search_delegate.dart';
 import 'package:flutter/material.dart';
 
@@ -153,8 +152,8 @@ class Section3 extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Wrap(
-              runSpacing: 20,
-              spacing: 20,
+              runSpacing: 15,
+              spacing: 15,
               children: [
                 Container(
                   width: 70,

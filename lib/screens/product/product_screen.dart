@@ -282,7 +282,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             Positioned(
               left: 0,
               right: 0,
-              bottom: MediaQuery.of(context).size.height * 0.5,
+              top: (MediaQuery.of(context).size.height * 0.5 - imageHeight),
               child: Center(
                 child: Image.asset(
                   widget.foodModel!.deatiledImg,
