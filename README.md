@@ -1,16 +1,79 @@
-# auxzon
+# PuppilTube
 
 A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+# 📚 Pupil Tube - Mobile App
 
-A few resources to get you started if this is your first Flutter project:
+<div align="center">
+  <img src="https://github.com/AdeebAbubacker/pupiltube/blob/main/assets/icon/pupil.png" alt="SchoolConnect Logo" width="200"/>
+  <p>An intuitive app designed to enhance communication between students and teachers, streamlining education through technology.</p>
+</div>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## App Screenshots
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<div align="center">
+  <table>
+    <tr>
+      <td>
+        <img src="https://github.com/AdeebAbubacker/pupiltube/blob/main/assets/readme/screen%201.jpg" alt="Screen 1" width="200"/>
+      </td>
+      <td>
+        <img src="https://github.com/AdeebAbubacker/pupiltube/blob/main/assets/readme/screen%202.jpg" alt="Screen 2" width="200"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://github.com/AdeebAbubacker/pupiltube/blob/main/assets/readme/screen%203.jpg" alt="Screen 3" width="200"/>
+      </td>
+      <td>
+        <img src="https://github.com/AdeebAbubacker/pupiltube/blob/main/assets/readme/screen%204.jpg" alt="Screen 4" width="200"/>
+      </td>
+    </tr>
+  </table>
+</div>
+
+---
+
+## 🌟 Features
+
+### 👨‍🏫 For Teachers
+
+- 📝 **Question Bank**: View and manage Question Bank , including options.
+- 📄 **Assesments**: Create, assign, and assesments with ease.
+- 📢 **Announcements**: Post important updates and keep students informed.
+- 📅 **Assements Tracking**: Track assement, regarding students attended and not attended.
+
+### 👩‍🎓 For Students
+
+- 👤 **Profile**: View personal information, attendance records, and grades.
+- 📥 **Assesments**: Submit assesments and track grades and feedback.
+- 🛎️ **Announcements**: Stay updated with the latest information from teachers.
+- 📊 **Events View**: Get Event details.
+
+## 🛠️ Tech Stack
+
+| Technology    | Description                                    |
+| ------------- | ---------------------------------------------- |
+| **Flutter**   | Frontend framework for cross-platform UI.      |
+| **Firebase**  | Backend services including Authentication.     |
+| **Firestore** | Database for storing student and teacher data. |
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- 📱 **Flutter SDK**: [Install Flutter](https://flutter.dev/docs/get-started/install)
+- 🖥️ **Android Studio / Xcode**: Development environment for building apps.
+- 🔥 **Firebase**: [Set up Firebase](https://firebase.google.com/docs/flutter/setup) with your project.
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/AdeebAbubacker/pupiltube
+   cd pupiltube
+
+   ```
