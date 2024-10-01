@@ -1,7 +1,6 @@
 import 'package:auxzon/core/constants/text_styles.dart';
 import 'package:auxzon/core/model/category_model.dart';
 import 'package:auxzon/core/model/food_model.dart';
-import 'package:auxzon/core/routes/app_routes.dart';
 import 'package:auxzon/screens/product/product_screen.dart';
 import 'package:auxzon/widgets/search_delegate.dart';
 import 'package:flutter/material.dart';
@@ -336,7 +335,7 @@ class TopRatedFood extends StatelessWidget {
     super.key,
   });
 
-  List<FoodModel> foodList = [
+  final List<FoodModel> foodList = [
     const FoodModel(
       img: 'assets/common/image-1.jpg',
       deatiledImg: 'assets/detailedImg/combo pack.png',
@@ -552,7 +551,7 @@ class RestaurantNearYou extends StatelessWidget {
   RestaurantNearYou({
     super.key,
   });
-  List<FoodModel> foodList = [
+  final List<FoodModel> foodList = [
     const FoodModel(
       img: 'assets/hotel/bueret cafe.jpg',
       deatiledImg: 'assets/detailedImg/combo pack.png',
@@ -701,7 +700,7 @@ class WhatsOnYourMind extends StatelessWidget {
     super.key,
   });
 
-  List<CategoryModel> categoryList = [
+  final List<CategoryModel> categoryList = [
     const CategoryModel(
       img: 'assets/mind categories/biriyani.png',
       title: 'Biriyani',

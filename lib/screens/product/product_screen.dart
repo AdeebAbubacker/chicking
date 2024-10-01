@@ -1,9 +1,10 @@
-import 'dart:async';
+// ignore_for_file: use_build_context_synchronously
 
 import 'package:auxzon/core/constants/text_styles.dart';
 import 'package:auxzon/core/functions/audio_player.dart';
 import 'package:auxzon/core/model/food_model.dart';
 import 'package:auxzon/main.dart';
+import 'package:auxzon/widgets/cart_successpopup.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailScreen extends StatefulWidget {
@@ -23,7 +24,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
       (audioServiceSingleton.audioHandler as AudioPlayerHandler)
           .playAudioFromAsset(assetPath);
     } catch (e) {
-      print("Error playing audio: $e");
+      // print("Error playing audio: $e");
     }
   }
 
@@ -32,7 +33,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final double imageHeight = 200;
+    const double imageHeight = 200;
     final double imageWidth = MediaQuery.of(context).size.width * 0.8;
     return Scaffold(
       backgroundColor: const Color(0XFFEEEEEE),
@@ -382,50 +383,3 @@ class ProductDescriptionWidget extends StatelessWidget {
   }
 }
 
-class CartSuccesspopup extends StatelessWidget {
-  final bool isTemAdded;
-  const CartSuccesspopup({super.key, required this.isTemAdded});
-
-  @override
-  Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 3), () {
-      Navigator.of(context).pop();
-    });
-
-    return Dialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      child: Container(
-        width: 310,
-        height: 210,
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Align(
-              alignment: Alignment.topRight,
-              child: IconButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                icon: const Icon(Icons.close),
-              ),
-            ),
-            const Spacer(),
-            const Text(
-              'Your Item has been added to cart!',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const Spacer(),
-          ],
-        ),
-      ),
-    );
-  }
-}
