@@ -11,20 +11,6 @@ class GetStartedScreen extends StatelessWidget {
       body: Stack(
         children: [
           Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            child: ClipPath(
-              clipper: WaveClipper(),
-              child: Image.asset(
-                'assets/common/image-3.jpg',
-                fit: BoxFit.cover,
-                width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.5,
-              ),
-            ),
-          ),
-          Positioned(
             top: MediaQuery.of(context).size.height * 0.55,
             left: 0,
             right: 0,
@@ -124,6 +110,20 @@ class GetStartedScreen extends StatelessWidget {
                     const SizedBox(height: 30)
                   ],
                 ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: ClipPath(
+              clipper: WaveClipper(),
+              child: Image.asset(
+                'assets/common/image-3.jpg',
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height * 0.5,
               ),
             ),
           ),
