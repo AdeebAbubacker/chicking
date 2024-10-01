@@ -1,8 +1,8 @@
-import 'package:auxzon/screens/home/sections/section_1.dart';
-import 'package:auxzon/screens/home/sections/section_2.dart';
-import 'package:auxzon/screens/home/sections/section_3.dart';
-import 'package:auxzon/screens/home/sections/section_4.dart';
-import 'package:auxzon/screens/home/sections/section_5.dart';
+import 'package:auxzon/screens/home/sections/search_screen.dart';
+import 'package:auxzon/screens/home/sections/favourites_screen.dart';
+import 'package:auxzon/screens/home/sections/home_screen.dart';
+import 'package:auxzon/screens/home/sections/cart_screen.dart';
+import 'package:auxzon/screens/home/sections/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeLayout extends StatefulWidget {
@@ -22,11 +22,11 @@ class _HomeLayoutState extends State<HomeLayout> {
   }
 
   static final List<Widget> _screens = [
-    const Section1(),
-    const Section2(),
-    const Section3(),
-    const Section4(),
-    const Section5(),
+    const SearchScreen(),
+    const FavouritesScreen(),
+    const HomeScreen(),
+    const CartScreen(),
+    const ProfileScreen(),
   ];
 
   @override

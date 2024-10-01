@@ -6,8 +6,8 @@ import 'package:auxzon/screens/product/product_screen.dart';
 import 'package:auxzon/widgets/search_delegate.dart';
 import 'package:flutter/material.dart';
 
-class Section3 extends StatelessWidget {
-  const Section3({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

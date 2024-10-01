@@ -1,8 +1,10 @@
 import 'package:auxzon/core/constants/text_styles.dart';
 import 'package:flutter/material.dart';
 
-class Section2 extends StatelessWidget {
-  const Section2({super.key});
+import 'package:flutter/material.dart';
+
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,13 +13,13 @@ class Section2 extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Text(
-            "Favourites Screen",
+            "Profile Screen",
             style: TextStyles.rubik20gblackyW500,
           ),
           Image.asset(
-            'assets/animated/sorry.gif',
+            'assets/animated/No Data Available.gif',
             height: MediaQuery.of(context).size.height * 0.8,
           ),
         ],

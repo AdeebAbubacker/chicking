@@ -1,8 +1,8 @@
 import 'package:auxzon/core/constants/text_styles.dart';
 import 'package:flutter/material.dart';
 
-class Section1 extends StatelessWidget {
-  const Section1({super.key});
+class CartScreen extends StatelessWidget {
+  const CartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,11 +13,11 @@ class Section1 extends StatelessWidget {
         children: [
           SizedBox(height: 20),
           Text(
-            "Search Screen",
+            "Cart Screen",
             style: TextStyles.rubik20gblackyW500,
           ),
           Image.asset(
-            'assets/animated/No Result Search.gif',
+            'assets/animated/cart.gif',
             height: MediaQuery.of(context).size.height * 0.8,
           ),
         ],
