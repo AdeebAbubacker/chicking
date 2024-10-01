@@ -16,7 +16,10 @@ class Section2 extends StatelessWidget {
             "Favourites Screen",
             style: TextStyles.rubik20gblackyW500,
           ),
-          Image.asset('assets/animated/sorry.gif'),
+          Image.asset(
+            'assets/animated/sorry.gif',
+            height: MediaQuery.of(context).size.height * 0.8,
+          ),
         ],
       ),
     );

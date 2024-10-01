@@ -18,6 +18,7 @@ class Section4 extends StatelessWidget {
           ),
           Image.asset(
             'assets/animated/cart.gif',
+            height: MediaQuery.of(context).size.height * 0.8,
           ),
         ],
       ),

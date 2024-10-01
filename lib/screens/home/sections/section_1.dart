@@ -16,7 +16,10 @@ class Section1 extends StatelessWidget {
             "Search Screen",
             style: TextStyles.rubik20gblackyW500,
           ),
-          Image.asset('assets/animated/No Result Search.gif'),
+          Image.asset(
+            'assets/animated/No Result Search.gif',
+            height: MediaQuery.of(context).size.height * 0.8,
+          ),
         ],
       ),
     );
